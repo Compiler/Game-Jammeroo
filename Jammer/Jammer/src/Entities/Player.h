@@ -15,7 +15,7 @@ namespace jam {
 
 
 	public:
-		Player(const sf::Vector2f& p, const sf::Rect<float> cb);
+		Player(const sf::Vector2f& p, const sf::Rect<float>& cb);
 
 		void move(sf::Vector2f movement);
 

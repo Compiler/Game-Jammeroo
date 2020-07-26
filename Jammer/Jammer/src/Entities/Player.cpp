@@ -2,10 +2,14 @@
 
 namespace jam {
 
-	Player::Player, 
+	Player::Player(const sf::Vector2f& p, const sf::Rect<float>& cb) : _pos(p), _collision_box(cb) {};
 
 	void Player::move(const sf::Vector2f movement) {
 		// check if the player can make the movement before moving
+
+	}
+
+	void Player::init() {
 
 	}
 
