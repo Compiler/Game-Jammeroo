@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClInclude Include="src\Collision\CollisionSystem.h" />
     <ClInclude Include="src\Entities\Entity.h" />
+    <ClInclude Include="src\Entities\EntityManager.h" />
     <ClInclude Include="src\Entities\Player.h" />
     <ClInclude Include="src\LukeTestEnv.h" />
     <ClInclude Include="src\Scenes\Level1.h" />

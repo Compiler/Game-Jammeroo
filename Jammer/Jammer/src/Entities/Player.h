@@ -23,7 +23,7 @@ namespace jam {
 		
 		void move(const sf::Vector2f& movement);
 		void update();
-		void render(sf::RenderWindow rw);
+		void render(sf::RenderWindow* rw);
 
 		// gets weight
 		inline float getWeight() const { return _weight; };

@@ -1,11 +1,13 @@
 #include <SFML/Graphics.hpp>
 
 #include "Scenes/SceneManager.h"
+#include <Entities/EntityManager.h>
 #include <memory>
 #include "Scenes/Scene.h"
 #include "Scenes/Level1.h"
 
-jam::SceneManager manager;
+std::unique_ptr < jam::SceneManager> manager;
+std::unique_ptr<jam::EntityManager> entityManager;
 
 int main() {
     sf::RenderWindow* window = new sf::RenderWindow(sf::VideoMode(200, 200), "SFML works!");
@@ -16,14 +18,13 @@ int main() {
     std::shared_ptr<jam::Level1> level1 = std::make_shared<jam::Level1>(window);
     static bool flip;
 
-    manager.addScene(scene1);
-    manager.addScene(level1);
-
-    manager.setCurrentScene("Scene 1");
+    manager->addScene(scene1);
+    manager->addScene(level1);
+    manager->setCurrentScene("Scene 1");
 
     while (window->isOpen()) {
-        manager.update();
-        manager.getCurrentScene().update();
+        manager->update();
+        manager->getCurrentScene().update();
 
 
         sf::Event event;
@@ -36,8 +37,8 @@ int main() {
                 }
             }
             
-            if (!flip)manager.setCurrentScene(scene1.getName());
-            else manager.setCurrentScene(level1->getName());
+            if (!flip)manager->setCurrentScene(scene1.getName());
+            else manager->setCurrentScene(level1->getName());
 
         }
 
@@ -45,7 +46,7 @@ int main() {
         static sf::CircleShape shape(10.f);
         shape.setFillColor(sf::Color::Red);
         window->draw(shape);
-        manager.getCurrentScene().render();
+        manager->getCurrentScene().render();
         window->display();
 
     }
