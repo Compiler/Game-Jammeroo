@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "Scenes/SceneManager.h"
+#include <memory>
 #include "Scenes/Scene.h"
 #include "Scenes/Level1.h"
 

@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 #include <SFML/Graphics.hpp>
-
+#include <memory>
 
 
 namespace jam {

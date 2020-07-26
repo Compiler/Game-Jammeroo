@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 #include "Scene.h"
 #include <vector>
 #include <stdio.h>
