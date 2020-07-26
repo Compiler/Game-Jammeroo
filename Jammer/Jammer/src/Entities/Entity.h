@@ -15,11 +15,15 @@ namespace jam {
 		Entity(const sf::Vector2f& p, const sf::Rect<float>& cb);
 		Entity() = default;
 
-		void setTexture() {}
-
+		void setTexture(const sf::Texture& t); // done
+		void setSize(const sf::Vector2f& factor);
 		virtual void load() {};
-		virtual void update() {};
-		virtual void render(sf::RenderWindow* rw) {};
+		virtual void update() {
+			m_sprite.setPosition(m_pos);
+		}; //done 
+		virtual void render(sf::RenderWindow* rw) {
+			rw->draw(m_sprite);
+		}; //done
 		virtual void unload() {};
 
 		inline bool isColliding(const sf::Rect<float>& other) const {return m_collision_box.intersects(other);}

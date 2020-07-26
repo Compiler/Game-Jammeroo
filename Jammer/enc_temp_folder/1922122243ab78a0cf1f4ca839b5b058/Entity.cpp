@@ -5,7 +5,6 @@ namespace jam {
 	Entity::Entity(const sf::Vector2f& p, const sf::Rect<float>& cb) : m_pos(p), m_collision_box(cb) {};
 	//	Entity::Entity() {};
 	void Entity::setTexture(const sf::Texture& t) {
-		
 		m_sprite.setTexture(t);
 
 	}
@@ -19,6 +18,7 @@ namespace jam {
 		textureRect.width *= factor.x;
 		m_sprite.setTextureRect(textureRect);
 		std::cout << m_sprite.getTexture()->getSize().x << ", " << m_sprite.getTexture()->getSize().y << std::endl;
+
 
 	}
 
