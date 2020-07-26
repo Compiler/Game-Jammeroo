@@ -6,8 +6,7 @@ namespace jam {
 	protected:
 		sf::Rect<float> m_collision_box;
 		sf::Vector2f m_pos;
-
-
+		unsigned int ID;
 		sf::Sprite m_sprite;
 
 	public:
@@ -27,5 +26,9 @@ namespace jam {
 		virtual void unload() {};
 
 		inline bool isColliding(const sf::Rect<float>& other) const {return m_collision_box.intersects(other);}
+	
+		inline unsigned int getID() const {
+			return ID;
+		}
 	};
 }
