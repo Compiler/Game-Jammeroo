@@ -19,14 +19,12 @@
     <ClInclude Include="src\Scenes\SceneManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Entities\Entity.cpp" />
     <ClCompile Include="src\Entities\Player.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Scenes\Level1.cpp" />
     <ClCompile Include="src\Scenes\Scene.cpp" />
     <ClCompile Include="src\Scenes\SceneManager.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\Entities\Entity.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

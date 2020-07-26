@@ -3,8 +3,13 @@
 
 namespace jam {
 
+<<<<<<< HEAD
 //	Player::Player(const sf::Vector2f& p, const sf::Rect<float>& cb, const sf::Texture& t, float w) : _weight(w) /*Entity(p, cb)*/ { _sprite = sf::Sprite(t); };
 	Player::Player(const sf::Vector2f& p, const sf::Rect<float>& cb, const sf::Sprite& s, float w) :_weight(w), _sprite(s) /*Entity(p, cb)*/ { Entity(p, cb); };
+=======
+	Player::Player(const sf::Vector2f& p, const sf::Rect<float>& cb, const sf::Texture& t, float w) : _weight(w), Entity(p, cb){ _sprite = sf::Sprite(t); };
+	Player::Player(const sf::Vector2f& p, const sf::Rect<float>& cb, const sf::Sprite& s, float w) :_weight(w), _sprite(s), Entity(p, cb) {};
+>>>>>>> 6eebd5d3e063534ac1be352e051abb6e793564f3
 
 	void Player::move(const sf::Vector2f& movement) {
 		//lerp movement probably
