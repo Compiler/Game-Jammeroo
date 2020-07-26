@@ -30,6 +30,9 @@
     <ClInclude Include="src\LukeTestEnv.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Collision\CollisionSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="src\Entities\Entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>

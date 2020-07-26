@@ -1,22 +1,13 @@
 #include "Player.h"
 #include "Entity.h"
-
+#include <Collision/CollisionSystem.h>
 namespace jam {
 
 	Player::Player(const sf::Vector2f& p, const sf::Rect<float>& cb, const sf::Texture& t, float w) : _weight(w), Entity(p, cb){ _sprite = sf::Sprite(t); };
 	Player::Player(const sf::Vector2f& p, const sf::Rect<float>& cb, const sf::Sprite& s, float w) :_weight(w), _sprite(s), Entity(p, cb) {};
 
 	void Player::move(const sf::Vector2f& movement) {
-		//lerp movement probably
-
-//		std::vector<const sf::Vector2f&> post_movement_overlaps;
-//		sf::Vector2f post_movement_overlap;
-//		for (auto collision_box : collision_boxes) {
-//			if (isColliding(collision_box)) return;
-//			post_movement_overlap = 
-//			post_movement_overlaps
-//		}
-//		
+		
 	}
 
 	void Player::update() {

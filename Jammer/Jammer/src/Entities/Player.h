@@ -20,10 +20,10 @@ namespace jam {
 
 		Player(const sf::Vector2f& p, const sf::Rect<float>& cb, const sf::Texture& t, float w = 1.0f);
 		Player(const sf::Vector2f& p, const sf::Rect<float>& cb, const sf::Sprite& s, float w = 1.0f);
+		
 		void move(const sf::Vector2f& movement);
 		void update();
-
-		void render();
+		void render(sf::RenderWindow rw);
 
 		// gets weight
 		inline float getWeight() const { return _weight; };

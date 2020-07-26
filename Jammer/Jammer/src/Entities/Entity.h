@@ -11,10 +11,10 @@ namespace jam {
 	public:
 
 
-		void load();
-		void update();
-		void render();
-		void unload();
+		virtual void load() {};
+		virtual void update() {};
+		virtual void render(sf::RenderWindow* rw) {};
+		virtual void unload() {};
 
 		inline bool isColliding(const sf::Rect<float>& other) const {return m_collision_box.intersects(other);}
 	};

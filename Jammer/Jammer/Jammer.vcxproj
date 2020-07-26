@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Collision\CollisionSystem.h" />
     <ClInclude Include="src\Entities\Entity.h" />
     <ClInclude Include="src\Entities\Player.h" />
     <ClInclude Include="src\LukeTestEnv.h" />
@@ -63,6 +64,7 @@
     <LinkIncremental>true</LinkIncremental>
     <IntDir>$(SolutionDir)int-bin\$(Configuration)-$(Platform)\</IntDir>
     <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\</OutDir>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)Jammer/src;</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
