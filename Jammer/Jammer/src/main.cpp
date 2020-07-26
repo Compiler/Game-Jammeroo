@@ -12,10 +12,14 @@ int main() {
 
     jam::Scene scene1(std::string("Scene 1"));
     jam::Scene scene2(std::string("Scene 2"));
+    jam::Scene scene3(std::string("Scene 3"));
     static bool flip;
 
     manager.addScene(&scene1);
     manager.addScene(&scene2);
+    manager.addScene(&scene3);
+
+    manager.setCurrentScene("Scene 1");
 
     while (window.isOpen()) {
         manager.update();
@@ -31,7 +35,7 @@ int main() {
                 flip = !flip;
             }
             
-            if (flip)manager.setCurrentScene(scene1.getName());
+            if (!flip)manager.setCurrentScene(scene1.getName());
             else manager.setCurrentScene(scene2.getName());
 
         }

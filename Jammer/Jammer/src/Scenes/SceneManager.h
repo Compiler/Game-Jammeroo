@@ -7,10 +7,10 @@ namespace jam {
 	class SceneManager {
 	private:
 		std::vector<jam::Scene> _scenes;
-		uint8_t _currentScene = -1;
-		uint8_t _nextScene = -1;
+		uint8_t _currentScene = 0;
+		uint8_t _nextScene = 0;
 
-		bool _dirty = 0;
+		bool _dirty = true;
 	public:
 
 		SceneManager() = default;
