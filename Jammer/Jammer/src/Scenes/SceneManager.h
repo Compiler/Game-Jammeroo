@@ -27,7 +27,6 @@ namespace jam {
 		void addScene(std::shared_ptr<Scene> scene);
 		void addSceneRef(const Scene& scene);
 		void addScene(Scene scene);
-		void addScene(Scene* scene);
 		
 		inline Scene& getCurrentScene() { return *_scenes[_currentScene]; }
 		inline Scene getCurrentSceneIndex(){ return *_scenes[_currentScene]; }
