@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Entities\Entity.h" />
     <ClInclude Include="src\Entities\Player.h" />
     <ClInclude Include="src\LukeTestEnv.h" />
     <ClInclude Include="src\Scenes\Level1.h" />
@@ -23,6 +24,9 @@
     <ClCompile Include="src\Scenes\Level1.cpp" />
     <ClCompile Include="src\Scenes\Scene.cpp" />
     <ClCompile Include="src\Scenes\SceneManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Entities\Entity.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

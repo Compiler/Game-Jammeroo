@@ -30,6 +30,9 @@
     <ClInclude Include="src\LukeTestEnv.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Entities\Entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -47,5 +50,8 @@
     <ClCompile Include="src\Scenes\Level1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Entities\Entity.cpp" />
   </ItemGroup>
 </Project>
