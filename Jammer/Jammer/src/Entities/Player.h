@@ -23,6 +23,8 @@ namespace jam {
 		void move(const sf::Vector2f& movement);
 		void update();
 
+		void render();
+
 		// gets weight
 		inline float getWeight() const { return _weight; };
 		// gets position
