@@ -5,6 +5,7 @@
 
 .vs/*
 intermediate-bin/*
+int-bin/*
 
 Jammer/Jammer/Jammer.vcxproj.filters
 Jammer/Jammer/Jammer.vcxproj
