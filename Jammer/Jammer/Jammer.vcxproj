@@ -20,6 +20,7 @@
   <ItemGroup>
     <ClCompile Include="src\Entities\Player.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Scenes\Level1.cpp" />
     <ClCompile Include="src\Scenes\Scene.cpp" />
     <ClCompile Include="src\Scenes\SceneManager.cpp" />
   </ItemGroup>

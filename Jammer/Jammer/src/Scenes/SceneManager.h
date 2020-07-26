@@ -6,7 +6,7 @@ namespace jam {
 	
 	class SceneManager {
 	private:
-		std::vector<jam::Scene> _scenes;
+		std::vector<std::shared_ptr<jam::Scene>> _scenes;
 		uint8_t _currentScene = 0;
 		uint8_t _nextScene = 0;
 
@@ -24,12 +24,13 @@ namespace jam {
 		void setCurrentScene(uint8_t sceneIndex);
 
 		void addScene(Scene&& scene);
-		void addScene(const Scene& scene);
+		void addScene(std::shared_ptr<Scene> scene);
+		void addSceneRef(const Scene& scene);
 		void addScene(Scene scene);
 		void addScene(Scene* scene);
 		
-		inline Scene& getCurrentScene() { return _scenes[_currentScene]; }
-		inline Scene getCurrentSceneIndex(){ return _scenes[_currentScene]; }
+		inline Scene& getCurrentScene() { return *_scenes[_currentScene]; }
+		inline Scene getCurrentSceneIndex(){ return *_scenes[_currentScene]; }
 		inline uint8_t getCurrentSceneIndex()const { return _currentScene; }
 	};
 }
