@@ -23,8 +23,8 @@ namespace jam {
 		// input
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) move(sf::Vector2f(-1.0f,  0.0f));
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) move(sf::Vector2f( 1.0f,  0.0f));
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) move(sf::Vector2f( 0.0f,  1.0f));
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) move(sf::Vector2f( 0.0f, -1.0f));
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) move(sf::Vector2f( 0.0f, -1.0f));
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) move(sf::Vector2f( 0.0f,  1.0f));
 		//move(_GRAVITY, entities);
 		//_sprite.setPosition(m_pos);
 
