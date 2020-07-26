@@ -6,10 +6,16 @@ namespace jam {
 	protected:
 		sf::Rect<float> m_collision_box;
 		sf::Vector2f m_pos;
-		Entity(const sf::Vector2f& p, const sf::Rect<float>& cb);
-		Entity() = default;
+
+
+		sf::Sprite m_sprite;
+
 	public:
 
+		Entity(const sf::Vector2f& p, const sf::Rect<float>& cb);
+		Entity() = default;
+
+		void setTexture() {}
 
 		virtual void load() {};
 		virtual void update() {};

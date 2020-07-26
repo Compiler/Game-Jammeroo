@@ -10,17 +10,13 @@ namespace jam {
 	private:
 
 		const sf::Vector2f _GRAVITY = sf::Vector2f(0.0f, -0.5f);
-
-
 		float _weight;
-		sf::Sprite _sprite;
-
 
 	public:
 		Player() = default;
 		Player(const sf::Vector2f& p, const sf::Rect<float>& cb, float w = 1.0f);
 		Player(const sf::Vector2f& p, const sf::Rect<float>& cb, const sf::Texture& t, float w = 1.0f);
-		Player(const sf::Vector2f& p, const sf::Rect<float>& cb, const sf::Sprite& s, float w = 1.0f);
+		Player(const sf::Vector2f& p, const sf::Rect<float>& cb, sf::Sprite s, float w = 1.0f);
 		
 		void move(const sf::Vector2f& movement);
 		void update();
