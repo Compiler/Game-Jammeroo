@@ -10,6 +10,12 @@ namespace jam {
 		Entity() = default;
 	public:
 
+
+		void load();
+		void update();
+		void render();
+		void unload();
+
 		inline bool isColliding(const sf::Rect<float>& other) const {return m_collision_box.intersects(other);}
 	};
 }
