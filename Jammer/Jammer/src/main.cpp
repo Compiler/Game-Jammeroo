@@ -30,9 +30,10 @@ int main() {
         while (window->pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window->close();
-
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
-                flip = !flip;
+            if (event.type == sf::Event::KeyReleased) {
+                if (event.key.code == sf::Keyboard::E) {
+                    flip = !flip;
+                }
             }
             
             if (!flip)manager.setCurrentScene(scene1.getName());
