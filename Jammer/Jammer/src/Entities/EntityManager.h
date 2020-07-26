@@ -23,6 +23,7 @@ namespace jam {
 		void render(sf::RenderWindow* rw);
 
 		void addPlayer(std::shared_ptr<Player> player) { _player = player;}
+		void addPlayer(Player player) { _player = std::make_shared<Player>(player);}
 		void addEntity(std::shared_ptr<Entity> e);
 		inline std::shared_ptr<Player> getPlayer() { return _player; }
 		inline std::shared_ptr<Entity> getEntity(uint32_t index) { return _entities[index]; }

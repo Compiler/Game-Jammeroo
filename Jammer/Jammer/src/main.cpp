@@ -6,8 +6,8 @@
 #include "Scenes/Scene.h"
 #include "Scenes/Level1.h"
 
-std::unique_ptr < jam::SceneManager> manager;
-std::unique_ptr<jam::EntityManager> entityManager;
+std::unique_ptr < jam::SceneManager> manager = std::make_unique<jam::SceneManager>();
+std::unique_ptr<jam::EntityManager> entityManager = std::make_unique<jam::EntityManager>();
 
 int main() {
     sf::RenderWindow* window = new sf::RenderWindow(sf::VideoMode(200, 200), "SFML works!");
@@ -18,12 +18,15 @@ int main() {
     std::shared_ptr<jam::Level1> level1 = std::make_shared<jam::Level1>(window);
     static bool flip;
 
+    std::shared_ptr<jam::Player> player = std::make_shared<jam::Player>(sf::Vector2f(50, 50), sf::Rect<float>(50, 50, 50, 50));
+    entityManager->addPlayer(*player);
     manager->addScene(scene1);
     manager->addScene(level1);
     manager->setCurrentScene("Scene 1");
 
     while (window->isOpen()) {
         manager->update();
+        entityManager->update();
         manager->getCurrentScene().update();
 
 
@@ -46,7 +49,9 @@ int main() {
         static sf::CircleShape shape(10.f);
         shape.setFillColor(sf::Color::Red);
         window->draw(shape);
+
         manager->getCurrentScene().render();
+        entityManager->render(window);
         window->display();
 
     }
