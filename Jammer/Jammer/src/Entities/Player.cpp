@@ -40,8 +40,6 @@ namespace jam {
 
 	}
 
-	void Player::draw(const sf::RenderWindow& draw_window) {
-		draw_window.draw(_sprite);
-	}
+
 
 }
