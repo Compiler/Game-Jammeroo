@@ -4,6 +4,7 @@
 #include <vector>
 #include <memory>
 #include <algorithm>
+#include <iostream>
 namespace jam {
 
 	class InputManager {
@@ -64,8 +65,10 @@ namespace jam {
 		}
 		inline static bool isKeyReleased(jam::KeyCode key) {
 			for (int i = 0; i < _keyReleasedEvents.size(); i++)
-				if (_keyReleasedEvents[i] == key)
+				if (_keyReleasedEvents[i] == key) {
+					std::cout << "key release called" << std::endl;
 					return true;
+				}
 			return false;
 		}
 
