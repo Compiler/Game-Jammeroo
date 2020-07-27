@@ -30,14 +30,14 @@ int main() {
     ent.setTexture(tex, 50, 100);
     entityManager->addEntity(std::make_shared<jam::Entity>(ent));
     ent.setSize(sf::Vector2f(10.0f, 20.0f));
-    sf::View view(sf::FloatRect(entityManager->getPlayer()->getPosition(), sf::Vector2f(100.0f, 100.0f)));
-    window->setView(view);
+    sf::View view(sf::FloatRect(entityManager->getPlayer()->getPosition(), sf::Vector2f(400.0f, 400.0f)));
     
     while (window->isOpen()) {
         manager->update();
         entityManager->update();
         manager->getCurrentScene().update();
         view.setCenter(entityManager->getPlayer()->getPosition());
+        window->setView(view);
        
 
         sf::Event event;
@@ -64,6 +64,10 @@ int main() {
         shape.setFillColor(sf::Color::Red);
         window->draw(shape);
 
+        static sf::CircleShape shape1(10.f);
+        shape1.setPosition(sf::Vector2f(50.0f, 10.0f));
+        shape1.setFillColor(sf::Color::Magenta);
+        window->draw(shape1);
         manager->getCurrentScene().render();
         entityManager->render(window);
         window->display();
