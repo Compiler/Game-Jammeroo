@@ -4,7 +4,7 @@
 namespace jam {
 	class Entity {
 	protected:
-		sf::Rect<float> m_collision_box;
+		sf::Rect<float> m_collisionBox;
 		sf::Vector2f m_pos;
 		unsigned int ID;
 		sf::Sprite m_sprite;
@@ -25,10 +25,14 @@ namespace jam {
 		}; //done
 		virtual void unload() {};
 
-		inline bool isColliding(const sf::Rect<float>& other) const {return m_collision_box.intersects(other);}
+		inline bool isColliding(const sf::Rect<float>& other) const {return m_collisionBox.intersects(other);}
 	
 		inline unsigned int getID() const {
 			return ID;
 		}
+
+		inline sf::Rect<float> getCollisionBox() { return m_collisionBox; }
+		inline sf::Vector2f getPosition() { return m_pos; }
+
 	};
 }
