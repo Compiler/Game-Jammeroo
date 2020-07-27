@@ -21,6 +21,8 @@
     <ClInclude Include="src\Scenes\Level1.h" />
     <ClInclude Include="src\Scenes\Scene.h" />
     <ClInclude Include="src\Scenes\SceneManager.h" />
+    <ClInclude Include="src\Tilemap\Tilemap.h" />
+    <ClInclude Include="src\Tilemap\Tileset.h" />
     <ClInclude Include="src\UI\Button.h" />
   </ItemGroup>
   <ItemGroup>
@@ -34,6 +36,8 @@
     <ClCompile Include="src\Scenes\Level1.cpp" />
     <ClCompile Include="src\Scenes\Scene.cpp" />
     <ClCompile Include="src\Scenes\SceneManager.cpp" />
+    <ClCompile Include="src\Tilemap\Tilemap.cpp" />
+    <ClCompile Include="src\Tilemap\Tileset.cpp" />
     <ClCompile Include="src\UI\Button.cpp" />
   </ItemGroup>
   <ItemGroup>
