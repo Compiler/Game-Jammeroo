@@ -54,6 +54,15 @@
     <ClInclude Include="src\Tilemap\Tileset.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Physics\Body.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Physics\Collider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Physics\JamMath.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

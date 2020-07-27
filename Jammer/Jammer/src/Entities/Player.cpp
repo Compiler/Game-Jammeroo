@@ -6,10 +6,9 @@
 namespace jam {
 
 	void Player::move(const sf::Vector2f& movement) {
-		sf::Vector2f projectedPosition = m_pos;
+		sf::Vector2f projectedPosition = m_position;
 		projectedPosition += movement;
-
-		m_pos = CollisionSystem::adjustProjectedPosition((Entity)*this, projectedPosition);
+		m_position = CollisionSystem::adjustProjectedPosition((Entity)*this, projectedPosition);
 	}
 
 	void Player::update() {
