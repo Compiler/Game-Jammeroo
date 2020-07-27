@@ -14,15 +14,6 @@ namespace jam {
 
 	void Player::update() {
 		Entity::update();
-		/*
-		TODO:
-
-		- Handle input and move based on input
-
-		*/
-
-		// input
-
 
 		if (jam::InputManager::isKeyPressed(jam::KeyCodes::KEY_A)) move(sf::Vector2f(-50.0f,  0.0f)*jam::JamCore::deltaTime);
 		if (jam::InputManager::isKeyPressed(jam::KeyCodes::KEY_D)) move(sf::Vector2f( 50.0f,  0.0f)*jam::JamCore::deltaTime);
@@ -31,18 +22,12 @@ namespace jam {
 		if (jam::InputManager::isKeyReleased(jam::KeyCodes::KEY_X))move(sf::Vector2f( .0f, -5000.0f)*jam::JamCore::deltaTime);
 
 		move(sf::Vector2f(0.0f, 70.0f)*jam::JamCore::deltaTime);
-		//_sprite.setPosition(m_pos);
-		
 	}
 
 
 	void Player::render(sf::RenderWindow* rw) {
 		Entity::render(rw);
-
-		/*
-		m_sprite.setPosition(this->getPosition());
-		rw->draw(m_sprite);
-		*/
+		
 		static sf::RectangleShape shape(sf::Vector2f(10.0f, 20.0f));
 		shape.setFillColor(sf::Color::Green);
 		shape.setPosition(this->getPosition());

@@ -3,6 +3,9 @@
 
 namespace jam {
 	class Entity {
+	private:
+
+		sf::Color __dbg_col;
 	protected:
 		sf::Rect<float> m_collisionBox;
 		sf::Vector2f m_pos, m_size;
@@ -25,7 +28,9 @@ namespace jam {
 		
 		void setSize(float width, float height);
 		void setTexture(sf::Texture* t);
-		virtual void load() {};
+		virtual void load() {
+			__dbg_col = sf::Color(rand() % 255, rand() % 255, rand() % 255);
+		};
 		virtual void update() {
 			m_sprite.setPosition(m_pos);
 			m_collisionBox.left = m_pos.x;
@@ -35,7 +40,7 @@ namespace jam {
 		}; 
 		virtual void render(sf::RenderWindow* rw) {
 			static sf::RectangleShape shape(sf::Vector2f(m_size.x, m_size.y));
-			shape.setFillColor(sf::Color::Yellow);
+			shape.setFillColor(__dbg_col);
 			shape.setPosition(this->getPosition());
 			rw->draw(m_sprite);
 			rw->draw(shape);

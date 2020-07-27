@@ -8,9 +8,13 @@ namespace jam {
 	void Entity::init(float x, float y, float width, float height) {
 		m_pos.x = x; m_pos.y = y;
 		m_size.x = width; m_size.y = height;
+		__dbg_col = sf::Color(rand() % 255, rand() % 255, rand() % 255);
+
 	}
 	Entity::Entity(float x, float y, float width, float height) {
 		init(x, y, width, height);
+		__dbg_col = sf::Color(rand() % 255, rand() % 255, rand() % 255);
+
 	}
 
 	void Entity::init(float x, float y, float width, float height, sf::Texture* texture) {
@@ -19,9 +23,13 @@ namespace jam {
 		this->m_texture = texture;
 		m_sprite.setTexture(*m_texture);
 		m_sprite.setTextureRect(sf::IntRect(this->m_pos.x, this->m_pos.y, this->m_size.x, this->m_size.y));
+		__dbg_col = sf::Color(rand() % 255, rand() % 255, rand() % 255);
+
 	}
 	Entity::Entity(float x, float y, float width, float height, sf::Texture* texture) {
 		init(x, y, width, height, texture);
+		__dbg_col = sf::Color(rand() % 255, rand() % 255, rand() % 255);
+
 	}
 
 
