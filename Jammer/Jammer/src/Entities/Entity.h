@@ -8,7 +8,7 @@ namespace jam {
 		sf::Color __dbg_col;
 	protected:
 		sf::Rect<float> m_collisionBox;
-		sf::Vector2f m_pos, m_size;
+		sf::Vector2f m_position, m_size;
 
 
 		static unsigned int COUNT;
@@ -32,10 +32,10 @@ namespace jam {
 			__dbg_col = sf::Color(rand() % 255, rand() % 255, rand() % 255);
 		};
 		virtual void update() {
-			m_sprite.setPosition(m_pos);
-			m_collisionBox.left = m_pos.x;
+			m_sprite.setPosition(m_position);
+			m_collisionBox.left = m_position.x;
 			m_collisionBox.width = m_size.x;
-			m_collisionBox.top = m_pos.y;
+			m_collisionBox.top = m_position.y;
 			m_collisionBox.height= m_size.y;
 		}; 
 		virtual void render(sf::RenderWindow* rw, sf::RenderStates state = sf::RenderStates::Default) {
@@ -61,12 +61,12 @@ namespace jam {
 			return uniqueID;
 		}
 		void setPosition(float x, float y) {
-			this->m_pos.x = x;
-			this->m_pos.y = y;
+			this->m_position.x = x;
+			this->m_position.y = y;
 		}
 
 		inline sf::Rect<float> getCollisionBox() { return m_collisionBox; }
-		inline sf::Vector2f getPosition() { return m_pos; }
+		inline sf::Vector2f getPosition() { return m_position; }
 
 	};
 }

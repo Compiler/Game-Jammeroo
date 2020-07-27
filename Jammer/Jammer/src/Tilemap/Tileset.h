@@ -5,7 +5,7 @@
 namespace jam {
 
 	enum TileType {
-
+		fuck, ass, fucku, fuckme
 	};
 
 	typedef jam::Entity Tile;

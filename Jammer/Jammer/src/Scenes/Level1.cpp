@@ -10,7 +10,7 @@ namespace jam {
 		jam::Entity ent = jam::Entity();
 		sf::Texture* tex = new sf::Texture();
 		
-		if (!tex->loadFromFile("res/molten.jpg")) std::cout << "FAILED TO LOAD" << std::endl;
+		if (!tex->loadFromFile("res/molten.jpg")) std::cout << "FAILED TO LOAD LMFAOOOOOOOOOOO\n" << std::endl;
 		for (int i = 0; i < 10; i++) {
 			ent.init(i*25, 200 + (i*15), 40.0f, 20.0f, tex);
 			m_entityManager->addEntity(std::make_shared<jam::Entity>(ent));
