@@ -8,9 +8,10 @@ namespace jam {
 	Player::Player(const sf::Vector2f& p, const sf::Rect<float>& cb, sf::Sprite s, float w) :_weight(w), Entity(p, cb) {};
 
 	void Player::move(const sf::Vector2f& movement) {
-		m_pos += movement;
-		m_collisionBox.left += movement.x;
-		m_collisionBox.top += movement.y;
+		sf::Vector2f projectedPosition = m_pos;
+		projectedPosition += movement;
+
+		m_pos = CollisionSystem::adjustProjectedPosition((Entity)*this, projectedPosition);
 	}
 
 	void Player::update() {
@@ -27,6 +28,8 @@ namespace jam {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) move(sf::Vector2f( 0.0f, -500.0f)*jam::JamCore::deltaTime);
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) move(sf::Vector2f( 0.0f,  500.0f)*jam::JamCore::deltaTime);
 
+		//move(_GRAVITY, entities);
+		//_sprite.setPosition(m_pos);
 
 	}
 

@@ -4,6 +4,8 @@
 #include <Entities/EntityManager.h>
 #include <optional>
 
+#include <iostream>
+
 namespace jam {
 
 	//TODO: 
@@ -11,14 +13,17 @@ namespace jam {
 	class CollisionSystem {
 
 	public:
-		friend class EntityManager;
-		static EntityManager whateverthefuckyouwant;
-		static void init(EntityManager em) {
-			whateverthefuckyouwant = em;
+
+
+		static void init(std::vector<std::shared_ptr<Entity>>* entities) {
+			_entities = entities;
 		}
+
+
 		static std::vector<std::shared_ptr<Entity>>* _entities;
 		static sf::Vector2f adjustProjectedPosition(jam::Entity entity1, sf::Vector2f projectedSpot) {
 			for (std::shared_ptr<jam::Entity> entity2 : *_entities) {
+				std::cout << "size :D \t" << _entities->size() << "\n";
 				if (entity2->getID() == entity1.getID()) { continue; }
 				sf::Rect<float> r1 = sf::Rect(projectedSpot, sf::Vector2f(entity1.getCollisionBox().width, entity1.getCollisionBox().height));
 				sf::Rect<float> r2 = entity2->getCollisionBox();
@@ -31,13 +36,12 @@ namespace jam {
 					float deltay = newy - joined_height;
 					projectedSpot.x += (deltax < 0) ? deltax : 0;
 					projectedSpot.y += (deltay < 0) ? deltay : 0;
-
+					std::cout << "2sup dawg :D \n";
 				}
 			}
 			return projectedSpot;
 		}
 		static bool aabbOverlapCheck(sf::Rect<float> r1, sf::Rect<float> r2) {
-
 			return r1.intersects(r2);
 		}
 
