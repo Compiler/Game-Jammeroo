@@ -26,14 +26,21 @@ namespace jam {
 	}
 
 	Tilemap::Tilemap(const std::vector<std::string>& filepaths) {
-		for (auto filepath : filepaths) this->load_layer(filepath);
+		for (auto filepath : filepaths) {
+			this->load_layer(filepath);
+			std::cout << filepath << std::endl;
+		}
 	}
 	
 	Tilemap::Tilemap(const std::string& filepath) {
 		this->load_layer(filepath);
 	}
 
-
+	/// <summary>
+	/// used to get the data
+	/// </summary>
+	/// <param name="layer_name"> the name of the layer, it is the name of the file without the path or extension </param>
+	/// <returns> the corresponding file </returns>
 	TileLayerData Tilemap::getData(const std::string& layer_name) const {
 		for (auto data : this->_data_vector)
 			if (data.getName() == layer_name)

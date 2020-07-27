@@ -6,7 +6,7 @@
 #include <Entities/EntityManager.h>
 
 namespace jam {
-	
+
 	class Scene {
 
 	private:

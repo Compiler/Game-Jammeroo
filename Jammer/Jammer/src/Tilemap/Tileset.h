@@ -4,16 +4,15 @@
 #include <Entities/Entity.h>
 namespace jam {
 
-	enum TileType {
-
-	};
 
 	typedef jam::Entity Tile;
 
 	struct Tileset {
+		Tileset() = default;
+		Tileset(const std::string& jsonpath);
 		sf::Texture texture;
 		std::unordered_map<int, Tile> tiles;
-		void load_tileset(const std::string& jsonpath, const std::string& imagepath);
+		void load_tileset(const std::string& jsonpath);
 
 	};
 
