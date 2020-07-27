@@ -7,6 +7,8 @@ namespace jam {
 	class Level1 : public Scene {
 	
 	private:
+		sf::Shader _shader;
+		std::shared_ptr<Entity> _testEntity;
 
 	public:
 		Level1() = delete;

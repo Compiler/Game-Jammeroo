@@ -45,7 +45,6 @@ namespace jam {
 		_window->setView(_view);
 		
 		deltaTime = clock.restart().asSeconds();
-		std::cout << deltaTime << std::endl;
 		InputManager::clear();
 
 		sf::Event event;

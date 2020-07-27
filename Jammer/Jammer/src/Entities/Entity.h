@@ -38,13 +38,21 @@ namespace jam {
 			m_collisionBox.top = m_pos.y;
 			m_collisionBox.height= m_size.y;
 		}; 
-		virtual void render(sf::RenderWindow* rw) {
+		virtual void render(sf::RenderWindow* rw, sf::RenderStates state = sf::RenderStates::Default) {
 			static sf::RectangleShape shape(sf::Vector2f(m_size.x, m_size.y));
 			shape.setFillColor(__dbg_col);
 			shape.setPosition(this->getPosition());
-			rw->draw(m_sprite);
-			rw->draw(shape);
+			rw->draw(m_sprite, state);
+			rw->draw(shape, state);
 		}; 
+
+		virtual void render(sf::RenderWindow* rw, sf::Shader shader) {
+			static sf::RectangleShape shape(sf::Vector2f(m_size.x, m_size.y));
+			shape.setFillColor(__dbg_col);
+			shape.setPosition(this->getPosition());
+			rw->draw(m_sprite, &shader);
+			rw->draw(shape, &shader);
+		};
 		virtual void unload() {};
 
 		inline bool isColliding(const sf::Rect<float>& other) const {return m_collisionBox.intersects(other);}

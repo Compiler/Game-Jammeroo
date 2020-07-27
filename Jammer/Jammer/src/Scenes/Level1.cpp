@@ -12,9 +12,32 @@ namespace jam {
 		
 		if (!tex->loadFromFile("res/molten.jpg")) std::cout << "FAILED TO LOAD" << std::endl;
 		for (int i = 0; i < 10; i++) {
-			ent.init(i*25, 300 + (i*15), 25.0f, 20.0f, tex);
+			ent.init(i*25, 300 + (i*15), 40.0f, 20.0f, tex);
 			m_entityManager->addEntity(std::make_shared<jam::Entity>(ent));
 		}
+		//ent.init(250, 300, 40.0f, 200.0f, tex);
+		//m_entityManager->addEntity(std::make_shared<jam::Entity>(ent));
+
+
+
+
+		sf::Texture* empTex = new sf::Texture();
+		_testEntity = std::make_shared<jam::Entity>();
+		_testEntity->init(100, 200, 100, 100, empTex);
+
+		m_entityManager->addEntity(_testEntity);
+
+		if (!sf::Shader::isAvailable()) {
+			std::cout << "LMFAOOO U HAVE NO SHADERS ON UR GPU LMFAOOOOOOO\n";
+		}
+
+		if (!_shader.loadFromFile("res/shaders/VertexShader.vert", sf::Shader::Vertex)) {
+			std::cout << "failed to load vertexShader.vert\n";
+		}
+		if (!_shader.loadFromFile("res/shaders/RayMarching.frag", sf::Shader::Fragment)) {
+			std::cout << "failed to load RayMarching.frag\n";
+		}
+
 	}
 
 	void Level1::update() {
@@ -39,6 +62,10 @@ namespace jam {
 		text.setStyle(sf::Text::Bold | sf::Text::Underlined);
 		m_windowRef->draw(shape);
 		m_windowRef->draw(text);
+		static float xxxx = _testEntity->getPosition().x;
+		xxxx += 0.1f;
+		_testEntity->render(m_windowRef, &_shader);
+		_testEntity->setPosition(xxxx, _testEntity->getPosition().y);
 	}
 
 	void Level1::unload() {

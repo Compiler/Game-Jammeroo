@@ -18,7 +18,6 @@
     <ClInclude Include="src\Input\InputManager.h" />
     <ClInclude Include="src\Input\InputTuples.h" />
     <ClInclude Include="src\JamCore.h" />
-    <ClInclude Include="src\LukeTestEnv.h" />
     <ClInclude Include="src\Scenes\Level1.h" />
     <ClInclude Include="src\Scenes\Scene.h" />
     <ClInclude Include="src\Scenes\SceneManager.h" />
@@ -40,6 +39,11 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="res\Raleway-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\shaders\FragmentShader.frag" />
+    <None Include="res\shaders\RayMarching.frag" />
+    <None Include="res\shaders\VertexShader.vert" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
