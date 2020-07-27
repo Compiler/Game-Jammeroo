@@ -2,9 +2,10 @@
 #include "Entity.h"
 #include <Collision/CollisionSystem.h>
 namespace jam {
-	Player::Player(const sf::Vector2f& p, const sf::Rect<float>& cb, float w) : _weight(w), Entity(p, cb) {};
-	Player::Player(const sf::Vector2f& p, const sf::Rect<float>& cb, const sf::Texture& t, float w) : _weight(w), Entity(p, cb){ m_sprite = sf::Sprite(t); };
-	Player::Player(const sf::Vector2f& p, const sf::Rect<float>& cb, sf::Sprite s, float w) :_weight(w), Entity(p, cb) {};
+	Player::Player(const sf::Vector2f& p, const sf::Rect<float>& cb, float w) : _weight(w), Entity(p, cb) { uniqueID = COUNT++; };
+	Player::Player(const sf::Vector2f& p, const sf::Rect<float>& cb, const sf::Texture& t, float w) : _weight(w), Entity(p, cb){ m_sprite = sf::Sprite(t);  uniqueID = COUNT++;
+	};
+	Player::Player(const sf::Vector2f& p, const sf::Rect<float>& cb, sf::Sprite s, float w) :_weight(w), Entity(p, cb) { uniqueID = COUNT++; };
 
 	void Player::move(const sf::Vector2f& movement) {
 		sf::Vector2f projectedPosition = m_pos;

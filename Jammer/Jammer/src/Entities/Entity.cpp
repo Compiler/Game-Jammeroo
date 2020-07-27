@@ -2,7 +2,9 @@
 #include <iostream>
 #include <string>
 namespace jam {
-	Entity::Entity(const sf::Vector2f& p, const sf::Rect<float>& cb) : m_pos(p), m_collisionBox(cb) {};
+
+	unsigned int Entity::COUNT = 0;
+	Entity::Entity(const sf::Vector2f& p, const sf::Rect<float>& cb) : m_pos(p), m_collisionBox(cb) { uniqueID = COUNT++; };
 	//	Entity::Entity() {};
 	void Entity::setTexture(const sf::Texture& t, float width, float height) {
 
