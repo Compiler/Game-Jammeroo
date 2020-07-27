@@ -45,7 +45,11 @@ int main() {
                     flip = !flip;
                 }
             }
-            
+            if (event.type == sf::Event::Resized) {
+                // update the view to the new size of the window
+                sf::FloatRect visibleArea(0.f, 0.f, event.size.width, event.size.height);
+                window->setView(sf::View(visibleArea));
+            }
             if (!flip)manager->setCurrentScene(scene1.getName());
             else manager->setCurrentScene(level1->getName());
 
