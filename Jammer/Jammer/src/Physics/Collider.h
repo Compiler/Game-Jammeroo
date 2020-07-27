@@ -97,7 +97,7 @@ namespace jam {
 
 			bCvx(std::vector<v2> verts, int numVerts, bool isSolid) : verts(verts), vertCt(numVerts), bArea(computeCenter(verts, numVerts), isSolid) { }
 
-			//TEST THIS
+			//TEST THIS NOOOOOOOOOOOOOOOOOOO U FUCKING LOSER IDIOT
 			v2 computeCenter(const std::vector<v2>& verts, int nVerts )
 			{
 				
