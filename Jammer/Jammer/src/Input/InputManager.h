@@ -45,6 +45,7 @@ namespace jam {
 
 		inline static bool isKeyPressed(jam::KeyCode key) {
 			for (int i = 0; i < _keyPressedEvents.size(); i++) {
+				
 				if (_keyPressedEvents[i] == key)
 					return true;
 			}

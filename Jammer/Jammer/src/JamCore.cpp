@@ -45,12 +45,15 @@ namespace jam {
 		deltaTime = clock.restart().asSeconds();
 		std::cout << deltaTime << std::endl;
 
+
+		InputManager::clear();
+
 		sf::Event event;
 		static bool flip;
 		while (_window->pollEvent(event)) {
+			populateEvents(event);
 			if (event.type == sf::Event::Closed)
 				_window->close();
-			populateEvents(event);
 			if (event.type == sf::Event::KeyReleased) {
 				if (event.key.code == sf::Keyboard::E) {
 					flip = !flip;
@@ -64,7 +67,6 @@ namespace jam {
 			if (!flip)_manager->setCurrentScene("Scene 1");
 			else _manager->setCurrentScene("Level1 Scene");
 		}
-		InputManager::clear();
 
 
 	}
