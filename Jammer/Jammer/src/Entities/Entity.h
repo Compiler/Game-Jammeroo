@@ -15,7 +15,7 @@ namespace jam {
 		Entity(const sf::Vector2f& p, const sf::Rect<float>& cb);
 		Entity() = default;
 
-		void setTexture(const sf::Texture& t); // done
+		void setTexture(const sf::Texture& t, float width, float height); // done
 		void setSize(const sf::Vector2f& factor);
 		virtual void load() {};
 		virtual void update() {

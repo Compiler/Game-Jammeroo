@@ -27,9 +27,9 @@ int main() {
     jam::Entity ent = jam::Entity();
     sf::Texture tex;
     if (!tex.loadFromFile("res/molten.jpg")) std::cout << "FAILED TO LOAD" << std::endl;
-    ent.setTexture(tex);
+    ent.setTexture(tex, 50, 100);
     entityManager->addEntity(std::make_shared<jam::Entity>(ent));
-    ent.setSize(sf::Vector2f(0.0000000001f, 0.0001f));
+    ent.setSize(sf::Vector2f(10.0f, 20.0f));
     while (window->isOpen()) {
         manager->update();
         entityManager->update();
