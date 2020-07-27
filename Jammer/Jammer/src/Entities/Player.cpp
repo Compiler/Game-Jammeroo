@@ -17,6 +17,7 @@ namespace jam {
 	}
 
 	void Player::update() {
+
 		/*
 		TODO:
 
@@ -31,10 +32,11 @@ namespace jam {
 		if (jam::InputManager::isKeyPressed(jam::KeyCodes::KEY_D)) move(sf::Vector2f( 50.0f,  0.0f)*jam::JamCore::deltaTime);
 		if (jam::InputManager::isKeyPressed(jam::KeyCodes::KEY_S)) move(sf::Vector2f( 0.0f,  50.0f)*jam::JamCore::deltaTime);
 		if (jam::InputManager::isKeyPressed(jam::KeyCodes::KEY_W)) move(sf::Vector2f( 0.0f, -50.0f)*jam::JamCore::deltaTime);
+		if (jam::InputManager::isKeyReleased(jam::KeyCodes::KEY_X))move(sf::Vector2f( .0f, -5000.0f)*jam::JamCore::deltaTime);
 
-		//move(_GRAVITY, entities);
+		move(sf::Vector2f(0.0f, 70.0f)*jam::JamCore::deltaTime);
 		//_sprite.setPosition(m_pos);
-
+		
 	}
 
 
