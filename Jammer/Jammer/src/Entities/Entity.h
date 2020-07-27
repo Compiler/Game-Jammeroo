@@ -43,7 +43,7 @@ namespace jam {
 			shape.setFillColor(__dbg_col);
 			shape.setPosition(this->getPosition());
 			rw->draw(m_sprite, state);
-			rw->draw(shape, state);
+//			rw->draw(shape, state);
 		}; 
 
 		virtual void render(sf::RenderWindow* rw, sf::Shader shader) {
