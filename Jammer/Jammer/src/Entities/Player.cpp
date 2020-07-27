@@ -4,10 +4,6 @@
 #include <Collision/CollisionSystem.h>
 #include <Input/InputManager.h>
 namespace jam {
-	Player::Player(const sf::Vector2f& p, const sf::Rect<float>& cb, float w) : _weight(w), Entity(p, cb) { uniqueID = COUNT++; };
-	Player::Player(const sf::Vector2f& p, const sf::Rect<float>& cb, const sf::Texture& t, float w) : _weight(w), Entity(p, cb){ m_sprite = sf::Sprite(t);  uniqueID = COUNT++;
-	};
-	Player::Player(const sf::Vector2f& p, const sf::Rect<float>& cb, sf::Sprite s, float w) :_weight(w), Entity(p, cb) { uniqueID = COUNT++; };
 
 	void Player::move(const sf::Vector2f& movement) {
 		sf::Vector2f projectedPosition = m_pos;
@@ -17,7 +13,7 @@ namespace jam {
 	}
 
 	void Player::update() {
-
+		Entity::update();
 		/*
 		TODO:
 
@@ -41,6 +37,8 @@ namespace jam {
 
 
 	void Player::render(sf::RenderWindow* rw) {
+		Entity::render(rw);
+
 		/*
 		m_sprite.setPosition(this->getPosition());
 		rw->draw(m_sprite);

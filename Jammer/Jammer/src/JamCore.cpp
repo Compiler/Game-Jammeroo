@@ -15,7 +15,8 @@ namespace jam {
 		sf::Vector2f playerPos = sf::Vector2f(50, 50);
 		sf::Vector2f playerSize = sf::Vector2f(10.0f, 20.0f);
 
-		std::shared_ptr<jam::Player> player = std::make_shared<jam::Player>(playerPos, sf::Rect<float>(playerPos, playerSize));
+		std::shared_ptr<jam::Player> player = std::make_shared<jam::Player>();
+		player->init(10, -10, 10, 20);
 		level1->getEntityManager()->addPlayer(*player);
 		scene1.getEntityManager()->addPlayer(*player);
 		_manager->addScene(scene1);
@@ -25,8 +26,7 @@ namespace jam {
 		jam::Entity ent = jam::Entity();
 		sf::Texture* tex = new sf::Texture();
 		if (!tex->loadFromFile("res/molten.jpg")) std::cout << "FAILED TO LOAD" << std::endl;
-		ent.setTexture(tex, 50, 100);
-		ent.setSize(sf::Vector2f(10.0f, 20.0f));
+		ent.init(0, -10, 10, 20, tex);
 		scene1.getEntityManager()->addEntity(std::make_shared<jam::Entity>(ent));
 		_view = sf::View(sf::FloatRect(_manager->getCurrentScene().getEntityManager()->getPlayer()->getPosition(), sf::Vector2f(400.0f, 400.0f)));
 		level1->load();

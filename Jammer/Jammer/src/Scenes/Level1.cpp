@@ -11,10 +11,10 @@ namespace jam {
 		sf::Texture* tex = new sf::Texture();
 		
 		if (!tex->loadFromFile("res/molten.jpg")) std::cout << "FAILED TO LOAD" << std::endl;
-		ent.setPosition(0, 0);
-		ent.setTexture(tex, 50, 100);
-		ent.setSize(sf::Vector2f(10.0f, 20.0f));
-		m_entityManager->addEntity(std::make_shared<jam::Entity>(ent));
+		for (int i = 0; i < 10; i++) {
+			ent.init(i*5, 300, 10.0f, 20.0f, tex);
+			m_entityManager->addEntity(std::make_shared<jam::Entity>(ent));
+		}
 	}
 
 	void Level1::update() {
