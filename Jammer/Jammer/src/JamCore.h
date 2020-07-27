@@ -26,7 +26,20 @@ namespace jam {
 		static float deltaTime;
 
 		JamCore() { std::cout << "pogu"; };
+		void pep_init() {
+			
+		}
+		void pep_update() {
+		
+		}
+		void pep_render() {
+			static sf::CircleShape shape(100.f);
+			shape.setFillColor(sf::Color::Yellow	);
+			shape.setPosition(-100,-100);
 
+			_window->draw(shape);
+
+		}
 		uint8_t state;
 		void init();
 		void update();

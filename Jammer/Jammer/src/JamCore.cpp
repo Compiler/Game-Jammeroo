@@ -7,6 +7,7 @@ namespace jam {
 	float JamCore::deltaTime;
 
 	void JamCore::init() {
+		pep_init();
 		_window = new sf::RenderWindow(sf::VideoMode(400, 400), "POGU");
 		jam::Scene scene1(_window, std::string("Scene 1"));
 		std::shared_ptr<jam::Level1> level1 = std::make_shared<jam::Level1>(_window);
@@ -36,6 +37,7 @@ namespace jam {
 	}
 
 	void JamCore::update() {
+		pep_update();
 		static sf::Clock clock = sf::Clock();
 
 		_manager->update();
@@ -81,6 +83,7 @@ namespace jam {
 		_window->clear();
 		_manager->getCurrentScene().render(_window);
 		_manager->getCurrentScene().getEntityManager()->render(_window);
+		pep_render();
 		_window->display();
 
 	}
