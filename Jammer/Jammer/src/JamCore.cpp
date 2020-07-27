@@ -79,14 +79,6 @@ namespace jam {
 
 
 		_window->clear();
-		static sf::CircleShape shape(10.f);
-		shape.setFillColor(sf::Color::Red);
-		_window->draw(shape);
-
-		static sf::CircleShape shape1(10.f);
-		shape1.setPosition(sf::Vector2f(50.0f, 10.0f));
-		shape1.setFillColor(sf::Color::Magenta);
-		_window->draw(shape1);
 		_manager->getCurrentScene().render(_window);
 		_manager->getCurrentScene().getEntityManager()->render(_window);
 		_window->display();
@@ -111,14 +103,19 @@ namespace jam {
 
 
 	void JamCore::populateEvents(sf::Event event) {
-		if (event.type == sf::Event::MouseMoved) {
+		if(event.type == sf::Event::MouseMoved) {
 			;
 			InputManager::addMousePosition(sf::Mouse::getPosition(*_window).x - _window->getSize().x / 2.0f, sf::Mouse::getPosition(*_window).y + _window->getSize().y / 4.0f);
 		}
 		if (event.type == sf::Event::MouseButtonPressed) {
-			
+			if (event.key.code == sf::Mouse::Left)InputManager::addMousePress(jam::MouseKeys::MOUSE_BUTTON_LEFT);
+			if (event.key.code == sf::Mouse::Right)InputManager::addMousePress(jam::MouseKeys::MOUSE_BUTTON_RIGHT);
 		}
-		if (event.type == sf::Event::KeyPressed) {
+		if (event.type == sf::Event::MouseButtonReleased) {
+			if (event.key.code == sf::Mouse::Left)InputManager::addMouseRelease(jam::MouseKeys::MOUSE_BUTTON_LEFT);
+			if (event.key.code == sf::Mouse::Right)InputManager::addMouseRelease(jam::MouseKeys::MOUSE_BUTTON_RIGHT);
+		}
+		if(event.type == sf::Event::KeyPressed) {
 			if (event.key.code == sf::Keyboard::Space) InputManager::addKeyPress(jam::KeyCodes::KEY_SPACE);
 			if (event.key.code == sf::Keyboard::Up) InputManager::addKeyPress(jam::KeyCodes::KEY_UP);
 			if (event.key.code == sf::Keyboard::Down) InputManager::addKeyPress(jam::KeyCodes::KEY_DOWN);

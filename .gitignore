@@ -8,7 +8,7 @@ intermediate-bin/*
 int-bin/*
 Jammer/int-bin/*
 Jammer/Jammer/int-bin/*
-
+/*.vcxproj
 Jammer/Jammer/Jammer.vcxproj.filters
 Jammer/Jammer/Jammer.vcxproj
 

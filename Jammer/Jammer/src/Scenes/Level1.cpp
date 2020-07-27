@@ -12,7 +12,7 @@ namespace jam {
 		
 		if (!tex->loadFromFile("res/molten.jpg")) std::cout << "FAILED TO LOAD" << std::endl;
 		for (int i = 0; i < 10; i++) {
-			ent.init(i*25, 300 + (i*15), 40.0f, 20.0f, tex);
+			ent.init(i*25, 200 + (i*15), 40.0f, 20.0f, tex);
 			m_entityManager->addEntity(std::make_shared<jam::Entity>(ent));
 		}
 		//ent.init(250, 300, 40.0f, 200.0f, tex);
