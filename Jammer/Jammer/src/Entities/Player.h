@@ -25,7 +25,7 @@ namespace jam {
 		inline float getWeight() const { return _weight; };
 		// gets position
 		inline const sf::Vector2f& getPosition() const { return m_pos; };
-
+		
 
 	};
 

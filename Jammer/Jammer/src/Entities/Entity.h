@@ -33,6 +33,10 @@ namespace jam {
 		inline unsigned int getID() const {
 			return uniqueID;
 		}
+		void setPosition(float x, float y) {
+			this->m_pos.x = x;
+			this->m_pos.y = y;
+		}
 
 		inline sf::Rect<float> getCollisionBox() { return m_collisionBox; }
 		inline sf::Vector2f getPosition() { return m_pos; }

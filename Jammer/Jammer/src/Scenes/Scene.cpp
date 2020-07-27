@@ -11,10 +11,10 @@ namespace jam {
 	void Scene::load() {
 	}
 	void Scene::update(){
-		_entityManager->update();
+		m_entityManager->update();
 	}
 	void Scene::render(sf::RenderWindow* window){
-		_entityManager->render(window);
+		m_entityManager->render(window);
 	}
 	void Scene::unload(){
 	}

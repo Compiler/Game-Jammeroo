@@ -5,7 +5,16 @@ namespace jam {
 	
 	void Level1::load() {
 		Scene::load();
-
+		m_entityManager->getPlayer()->setPosition(0, 100);
+		
+		jam::Entity ent = jam::Entity();
+		sf::Texture* tex = new sf::Texture();
+		
+		if (!tex->loadFromFile("res/molten.jpg")) std::cout << "FAILED TO LOAD" << std::endl;
+		ent.setPosition(0, 0);
+		ent.setTexture(tex, 50, 100);
+		ent.setSize(sf::Vector2f(10.0f, 20.0f));
+		m_entityManager->addEntity(std::make_shared<jam::Entity>(ent));
 	}
 
 	void Level1::update() {

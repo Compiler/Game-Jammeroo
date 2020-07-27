@@ -13,10 +13,10 @@ namespace jam {
 	private:
 		static uint8_t _COUNT;
 		std::string _sceneName;
-		EntityManager* _entityManager = new EntityManager();
 
 	protected:
 		sf::RenderWindow* m_windowRef;
+		EntityManager* m_entityManager = new EntityManager();
 
 	public:
 		Scene(sf::RenderWindow*);
@@ -28,7 +28,7 @@ namespace jam {
 		virtual void render(sf::RenderWindow* window);
 		virtual void unload();
 
-		EntityManager* getEntityManager() { return _entityManager; }
+		EntityManager* getEntityManager() { return m_entityManager; }
 		inline const std::string getName()const { return _sceneName; }
 
 	};

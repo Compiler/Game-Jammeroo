@@ -20,7 +20,7 @@ namespace jam {
 		scene1.getEntityManager()->addPlayer(*player);
 		_manager->addScene(scene1);
 		_manager->addScene(level1);
-		_manager->setCurrentScene("Scene 1");
+		_manager->setCurrentScene(level1->getName());
 
 		jam::Entity ent = jam::Entity();
 		sf::Texture* tex = new sf::Texture();
@@ -29,7 +29,7 @@ namespace jam {
 		ent.setSize(sf::Vector2f(10.0f, 20.0f));
 		scene1.getEntityManager()->addEntity(std::make_shared<jam::Entity>(ent));
 		_view = sf::View(sf::FloatRect(_manager->getCurrentScene().getEntityManager()->getPlayer()->getPosition(), sf::Vector2f(400.0f, 400.0f)));
-
+		level1->load();
 
 
 		CollisionSystem::init(scene1.getEntityManager()->getEntities());
@@ -64,7 +64,7 @@ namespace jam {
 				sf::FloatRect visibleArea(0.f, 0.f, event.size.width, event.size.height);
 				_window->setView(sf::View(visibleArea));
 			}
-			if (!flip) {
+			if (flip) {
 				CollisionSystem::init(_manager->getSceneByName("Scene 1").getEntityManager()->getEntities());
 				_manager->setCurrentScene("Scene 1");
 			} else {
