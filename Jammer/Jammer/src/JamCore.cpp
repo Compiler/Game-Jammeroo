@@ -22,6 +22,7 @@ namespace jam {
 		_manager->addScene(level1);
 		_manager->setCurrentScene("Scene 1");
 
+		//yea uya know?
 
 		jam::Entity ent = jam::Entity();
 		sf::Texture* tex = new sf::Texture();
@@ -33,7 +34,7 @@ namespace jam {
 
 
 
-
+		//
 		CollisionSystem::init(scene1.getEntityManager()->getEntities());
 	}
 
