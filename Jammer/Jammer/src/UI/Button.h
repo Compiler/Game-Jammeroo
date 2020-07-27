@@ -1,6 +1,7 @@
 #pragma once
 #include <stdint.h>
 #include <SFML/Graphics.hpp>
+#include <Input/InputManager.h>
 
 
 namespace jam {
@@ -12,7 +13,7 @@ namespace jam {
 		float _x, _y;
 		float _width, _height;
 
-		sf::Rect<float> windowArea;
+		sf::Rect<float> _windowArea;
 
 	public:
 

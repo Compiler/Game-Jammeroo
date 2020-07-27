@@ -110,7 +110,14 @@ namespace jam {
 
 
 
-	void populateEvents(sf::Event event) {
+	void JamCore::populateEvents(sf::Event event) {
+		if (event.type == sf::Event::MouseMoved) {
+			;
+			InputManager::addMousePosition(sf::Mouse::getPosition(*_window).x - _window->getSize().x / 2.0f, sf::Mouse::getPosition(*_window).y + _window->getSize().y / 4.0f);
+		}
+		if (event.type == sf::Event::MouseButtonPressed) {
+			
+		}
 		if (event.type == sf::Event::KeyPressed) {
 			if (event.key.code == sf::Keyboard::Space) InputManager::addKeyPress(jam::KeyCodes::KEY_SPACE);
 			if (event.key.code == sf::Keyboard::Up) InputManager::addKeyPress(jam::KeyCodes::KEY_UP);

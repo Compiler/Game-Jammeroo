@@ -21,6 +21,7 @@
     <ClInclude Include="src\Scenes\Level1.h" />
     <ClInclude Include="src\Scenes\Scene.h" />
     <ClInclude Include="src\Scenes\SceneManager.h" />
+    <ClInclude Include="src\UI\Button.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Physics\Collision\CollisionSystem.cpp" />
@@ -33,6 +34,7 @@
     <ClCompile Include="src\Scenes\Level1.cpp" />
     <ClCompile Include="src\Scenes\Scene.cpp" />
     <ClCompile Include="src\Scenes\SceneManager.cpp" />
+    <ClCompile Include="src\UI\Button.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\molten.jpg" />

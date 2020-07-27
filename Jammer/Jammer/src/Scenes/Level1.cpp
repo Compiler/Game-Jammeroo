@@ -47,6 +47,8 @@ namespace jam {
 	}
 
 	void Level1::render(sf::RenderWindow* window) {
+		static jam::Button button(100, 100, 100, 20);
+
 		Scene::render(window);
 		static sf::CircleShape shape(100.f);
 		shape.setFillColor(sf::Color::Blue);
@@ -67,6 +69,9 @@ namespace jam {
 		xxxx += 0.1f;
 		_testEntity->render(m_windowRef, &_shader);
 		_testEntity->setPosition(xxxx, _testEntity->getPosition().y);
+
+
+		button.render(window);
 	}
 
 	void Level1::unload() {

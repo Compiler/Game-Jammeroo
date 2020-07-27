@@ -18,6 +18,9 @@ namespace jam {
 		sf::RenderWindow* _window;
 		sf::View _view;
 
+
+		void populateEvents(sf::Event event);
+
 	public:
 
 		static float deltaTime;

@@ -1,5 +1,6 @@
 #pragma once
 #include "Scene.h"
+#include <UI/Button.h>
 //extends scene
 
 namespace jam {
