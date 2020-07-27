@@ -31,17 +31,14 @@ int main() {
     entityManager->addEntity(std::make_shared<jam::Entity>(ent));
     ent.setSize(sf::Vector2f(10.0f, 20.0f));
     sf::View view(sf::FloatRect(entityManager->getPlayer()->getPosition(), sf::Vector2f(400.0f, 400.0f)));
-    sf::Clock clock;
-    float deltaTime;
+    
     while (window->isOpen()) {
         manager->update();
         entityManager->update();
         manager->getCurrentScene().update();
         view.setCenter(entityManager->getPlayer()->getPosition());
         window->setView(view);
-
-        deltaTime = clock.restart().asSeconds();
-
+       
 
         sf::Event event;
         while (window->pollEvent(event)) {
@@ -74,8 +71,6 @@ int main() {
         manager->getCurrentScene().render();
         entityManager->render(window);
         window->display();
-
-
 
     }
 
