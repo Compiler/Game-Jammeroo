@@ -2,7 +2,6 @@
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <Entities/Entity.h>
 #include <Entities/EntityManager.h>
-#include <optional>
 
 #include <iostream>
 
