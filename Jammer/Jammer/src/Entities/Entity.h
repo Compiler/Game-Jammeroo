@@ -16,6 +16,7 @@ namespace jam {
 		Entity(const sf::Vector2f& p, const sf::Rect<float>& cb);
 		Entity() { uniqueID = COUNT++;  };
 
+
 		void setTexture(sf::Texture* t, float width, float height); // done
 		void setSize(const sf::Vector2f& factor);
 		virtual void load() {};
