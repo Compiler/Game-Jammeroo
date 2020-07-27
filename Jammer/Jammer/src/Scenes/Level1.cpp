@@ -34,7 +34,7 @@ namespace jam {
 		if (!_shader.loadFromFile("res/shaders/VertexShader.vert", sf::Shader::Vertex)) {
 			std::cout << "failed to load vertexShader.vert\n";
 		}
-		if (!_shader.loadFromFile("res/shaders/RayMarching.frag", sf::Shader::Fragment)) {
+		if (!_shader.loadFromFile("res/shaders/FragmentShader.frag", sf::Shader::Fragment)) {
 			std::cout << "failed to load RayMarching.frag\n";
 		}
 
