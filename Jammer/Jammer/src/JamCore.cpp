@@ -5,6 +5,7 @@ namespace jam {
 
 
 
+	float JamCore::deltaTime;
 
 	void JamCore::init() {
 		_window = new sf::RenderWindow(sf::VideoMode(400, 400), "POGU");
@@ -20,8 +21,8 @@ namespace jam {
 
 
 		jam::Entity ent = jam::Entity();
-		sf::Texture tex;
-		if (!tex.loadFromFile("res/molten.jpg")) std::cout << "FAILED TO LOAD" << std::endl;
+		sf::Texture* tex = new sf::Texture();
+		if (!tex->loadFromFile("res/molten.jpg")) std::cout << "FAILED TO LOAD" << std::endl;
 		ent.setTexture(tex, 50, 100);
 		_entityManager->addEntity(std::make_shared<jam::Entity>(ent));
 		ent.setSize(sf::Vector2f(10.0f, 20.0f));
@@ -37,9 +38,8 @@ namespace jam {
 		_view.setCenter(_entityManager->getPlayer()->getPosition());
 		_window->setView(_view);
 		
-		static float deltaTime;
-		//deltaTime = clock.restart().asSeconds();
-
+		deltaTime = clock.restart().asSeconds();
+		std::cout << deltaTime << std::endl;
 
 		sf::Event event;
 		static bool flip;

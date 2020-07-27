@@ -8,13 +8,14 @@ namespace jam {
 		sf::Vector2f m_pos;
 		unsigned int ID;
 		sf::Sprite m_sprite;
+		sf::Texture* m_texture;
 
 	public:
 
 		Entity(const sf::Vector2f& p, const sf::Rect<float>& cb);
 		Entity() = default;
 
-		void setTexture(const sf::Texture& t, float width, float height); // done
+		void setTexture(sf::Texture* t, float width, float height); // done
 		void setSize(const sf::Vector2f& factor);
 		virtual void load() {};
 		virtual void update() {

@@ -9,7 +9,6 @@ namespace jam {
 
 	private:
 
-		const sf::Vector2f _GRAVITY = sf::Vector2f(0.0f, -0.5f);
 		float _weight;
 
 	public:

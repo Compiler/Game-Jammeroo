@@ -21,6 +21,8 @@ namespace jam {
 
 	public:
 
+		static float deltaTime;
+
 		JamCore() { std::cout << "pogu"; };
 
 		uint8_t state;
