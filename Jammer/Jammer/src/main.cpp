@@ -10,7 +10,7 @@ std::unique_ptr < jam::SceneManager> manager = std::make_unique<jam::SceneManage
 std::unique_ptr<jam::EntityManager> entityManager = std::make_unique<jam::EntityManager>();
 
 int main() {
-    sf::RenderWindow* window = new sf::RenderWindow(sf::VideoMode(200, 200), "SFML works!");
+    sf::RenderWindow* window = new sf::RenderWindow(sf::VideoMode(400, 400), "SFML works!");
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Magenta);
 
@@ -30,11 +30,15 @@ int main() {
     ent.setTexture(tex, 50, 100);
     entityManager->addEntity(std::make_shared<jam::Entity>(ent));
     ent.setSize(sf::Vector2f(10.0f, 20.0f));
+    sf::View view(sf::FloatRect(entityManager->getPlayer()->getPosition(), sf::Vector2f(100.0f, 100.0f)));
+    window->setView(view);
+    
     while (window->isOpen()) {
         manager->update();
         entityManager->update();
         manager->getCurrentScene().update();
-        
+        view.setCenter(entityManager->getPlayer()->getPosition());
+       
 
         sf::Event event;
         while (window->pollEvent(event)) {

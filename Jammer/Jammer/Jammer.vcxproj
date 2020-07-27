@@ -32,6 +32,9 @@
   <ItemGroup>
     <Image Include="res\molten.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="res\Raleway-Regular.ttf" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

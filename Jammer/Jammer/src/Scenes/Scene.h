@@ -13,7 +13,6 @@ namespace jam {
 		static uint8_t _COUNT;
 		std::string _sceneName;
 
-
 	protected:
 		sf::RenderWindow* m_windowRef;
 
