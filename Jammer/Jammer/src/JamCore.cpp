@@ -3,13 +3,9 @@
 
 namespace jam {
 
-<<<<<<< HEAD
-
 
 	float JamCore::deltaTime;
 
-=======
->>>>>>> b72e5c7b546b95c6043792de7431d89701e31f56
 	void JamCore::init() {
 		_window = new sf::RenderWindow(sf::VideoMode(400, 400), "POGU");
 		jam::Scene scene1(_window, std::string("Scene 1"));
