@@ -4,7 +4,7 @@
 #include <vector>
 #include <memory>
 #include <Entities/Player.h>
-#include <Collision/CollisionSystem.h>
+#include <Physics/Collision/CollisionSystem.h>
 namespace jam {
 
 	class EntityManager {

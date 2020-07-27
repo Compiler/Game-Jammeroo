@@ -1,7 +1,7 @@
 #include "Player.h"
 #include "Entity.h"
 #include <JamCore.h>
-#include <Collision/CollisionSystem.h>
+#include <Physics/Collision/CollisionSystem.h>
 #include <Input/InputManager.h>
 namespace jam {
 

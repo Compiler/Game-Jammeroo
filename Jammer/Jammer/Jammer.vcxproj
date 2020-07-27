@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Collision\CollisionSystem.h" />
+    <ClInclude Include="src\Physics\Collision\CollisionSystem.h" />
     <ClInclude Include="src\Entities\Entity.h" />
     <ClInclude Include="src\Entities\EntityManager.h" />
     <ClInclude Include="src\Entities\Player.h" />
@@ -24,7 +24,7 @@
     <ClInclude Include="src\Scenes\SceneManager.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Collision\CollisionSystem.cpp" />
+    <ClCompile Include="src\Physics\Collision\CollisionSystem.cpp" />
     <ClCompile Include="src\Entities\Entity.cpp" />
     <ClCompile Include="src\Entities\EntityManager.cpp" />
     <ClCompile Include="src\Entities\Player.cpp" />
