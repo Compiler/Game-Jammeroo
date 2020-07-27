@@ -22,7 +22,7 @@ namespace jam {
 		m_size.x = width; m_size.y = height;
 		this->m_texture = texture;
 		m_sprite.setTexture(*m_texture);
-		m_sprite.setTextureRect(sf::IntRect(this->m_pos.x, this->m_pos.y, this->m_size.x, this->m_size.y));
+		m_sprite.setTextureRect(sf::IntRect(x, y, this->m_size.x, this->m_size.y));
 		__dbg_col = sf::Color(rand() % 255, rand() % 255, rand() % 255);
 
 	}

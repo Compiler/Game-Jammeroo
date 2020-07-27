@@ -37,7 +37,7 @@ namespace jam {
 		sf::Vector2i tileSize(std::stoi(jsonvars["\"tilewidth\""]), std::stoi(jsonvars["\"tileheight\""]));
 		for (unsigned int i = 0; i < std::stoi(jsonvars["\"tilecount\""]); i++) {
 			//make tile
-			//Tile tile(tileSize, cursor);
+			Tile tile(0, 0, tileSize.x, tileSize.y);
 
 			//add to tileset
 			//tileset.tiles[i] = tile;
