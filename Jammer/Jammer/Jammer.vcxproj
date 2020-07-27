@@ -22,6 +22,7 @@
     <ClInclude Include="src\Scenes\SceneManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Collision\CollisionSystem.cpp" />
     <ClCompile Include="src\Entities\Entity.cpp" />
     <ClCompile Include="src\Entities\EntityManager.cpp" />
     <ClCompile Include="src\Entities\Player.cpp" />

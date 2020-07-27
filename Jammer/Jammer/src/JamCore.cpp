@@ -3,9 +3,6 @@
 
 namespace jam {
 
-
-
-
 	void JamCore::init() {
 		_window = new sf::RenderWindow(sf::VideoMode(400, 400), "POGU");
 		jam::Scene scene1(_window, std::string("Scene 1"));
@@ -26,6 +23,11 @@ namespace jam {
 		_entityManager->addEntity(std::make_shared<jam::Entity>(ent));
 		ent.setSize(sf::Vector2f(10.0f, 20.0f));
 		_view = sf::View(sf::FloatRect(_entityManager->getPlayer()->getPosition(), sf::Vector2f(400.0f, 400.0f)));
+
+
+
+
+		CollisionSystem::init(_entityManager->getEntities());
 	}
 
 	void JamCore::update() {
@@ -60,6 +62,7 @@ namespace jam {
 			else _manager->setCurrentScene("Level1 Scene");
 
 		}
+
 	}
 
 	void JamCore::render() {

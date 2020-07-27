@@ -6,6 +6,7 @@
 #include <memory>
 #include <Scenes/Scene.h>
 #include <Scenes/Level1.h>
+#include <Collision/CollisionSystem.h>
 
 namespace jam {
 	
@@ -15,7 +16,7 @@ namespace jam {
 
 	private:
 		std::unique_ptr<SceneManager>  _manager = std::make_unique<SceneManager>();
-		std::unique_ptr<EntityManager> _entityManager = std::make_unique <EntityManager>();
+		EntityManager* _entityManager = new EntityManager();
 		sf::RenderWindow* _window;
 		sf::View _view;
 

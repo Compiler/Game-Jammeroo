@@ -9,15 +9,11 @@ namespace jam {
 
 
 	void Scene::load() {
-		std::cout << _sceneName.c_str() << ": Load()\n";
 	}
 	void Scene::update(){
-		std::cout << _sceneName << ": Update()\n";
 	}
 	void Scene::render(){
-		std::cout << _sceneName << ": Render()\n";
 	}
 	void Scene::unload(){
-		std::cout << _sceneName << ": Unload()\n";
 	}
 }
