@@ -34,13 +34,14 @@ namespace jam {
 			std::vector<std::string> v = { "res/tilemap/pogmap_ground.csv", "res/tilemap/pogmap_water.csv" };
 			tm = jam::Tilemap(v);
 			ts = jam::Tileset("res/tilemap/pogsheet.json");
+			std::cout <<  "end of pep_init" << std::endl;
 
 		}
 		void pep_render() {
 			static sf::CircleShape shape(100.f);
 			shape.setFillColor(sf::Color::Yellow);
 			shape.setPosition(-100, -100);
-			static sf::Vector2f cursor(-100.0f, 10000.0f);
+			static sf::Vector2f cursor(0.0f, 0.0f);
 			static sf::Vector2i size(16, 16);
 			unsigned int column = 0;
 			for (auto layer : tm.getDataVector()){

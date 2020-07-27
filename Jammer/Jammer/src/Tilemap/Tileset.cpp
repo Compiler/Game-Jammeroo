@@ -34,7 +34,12 @@ namespace jam {
 	}
 
 	Tileset::Tileset(const std::string& jsonpath) {
+		this->texture = new sf::Texture();
 		this->load_tileset(jsonpath);
+	}
+
+	Tileset::~Tileset() {
+		delete this->texture;
 	}
 
 	void Tileset::load_tileset(const std::string& jsonpath) {
@@ -60,11 +65,10 @@ namespace jam {
 			}
 		}
 
-		this->texture = sf::Texture();
 		std::string filepath = jsonvars["\"image\""];
 		filepath = filepath.substr(1, filepath.size() - 2);
-		if(!this->texture.loadFromFile(filepath)) std::cout << "the file did not load" << std::endl;
-
+		if(!this->texture->loadFromFile(filepath)) std::cout << "the file did not load" << std::endl;
+	
 	}
 
 }

@@ -10,7 +10,12 @@ namespace jam {
 	struct Tileset {
 		Tileset() = default;
 		Tileset(const std::string& jsonpath);
-		sf::Texture texture;
+		~Tileset();
+		// it seems that for some reason the member was just deleting itself or something?
+		// probs scope issues
+		// so i just allocated it on the heap for now
+		// if you have a better solution please enact it
+		sf::Texture* texture; 
 		std::unordered_map<int, Tile> tiles;
 		void load_tileset(const std::string& jsonpath);
 
