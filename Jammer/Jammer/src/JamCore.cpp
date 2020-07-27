@@ -22,8 +22,6 @@ namespace jam {
 		_manager->addScene(level1);
 		_manager->setCurrentScene("Scene 1");
 
-		//yea uya know?
-
 		jam::Entity ent = jam::Entity();
 		sf::Texture* tex = new sf::Texture();
 		if (!tex->loadFromFile("res/molten.jpg")) std::cout << "FAILED TO LOAD" << std::endl;
@@ -34,7 +32,6 @@ namespace jam {
 
 
 
-		//
 		CollisionSystem::init(scene1.getEntityManager()->getEntities());
 	}
 
@@ -118,6 +115,7 @@ namespace jam {
 
 	void populateEvents(sf::Event event) {
 		if (event.type == sf::Event::KeyPressed) {
+			if (event.key.code == sf::Keyboard::Space) InputManager::addKeyPress(jam::KeyCodes::KEY_SPACE);
 			if (event.key.code == sf::Keyboard::Up) InputManager::addKeyPress(jam::KeyCodes::KEY_UP);
 			if (event.key.code == sf::Keyboard::Down) InputManager::addKeyPress(jam::KeyCodes::KEY_DOWN);
 			if (event.key.code == sf::Keyboard::Left) InputManager::addKeyPress(jam::KeyCodes::KEY_LEFT);
@@ -150,6 +148,7 @@ namespace jam {
 			if (event.key.code == sf::Keyboard::Z) InputManager::addKeyPress(jam::KeyCodes::KEY_Z);
 		}
 		if (event.type == sf::Event::KeyReleased) {
+			if (event.key.code == sf::Keyboard::Space) InputManager::addKeyRelease(jam::KeyCodes::KEY_SPACE);
 			if (event.key.code == sf::Keyboard::Up) InputManager::addKeyRelease(jam::KeyCodes::KEY_UP);
 			if (event.key.code == sf::Keyboard::Down) InputManager::addKeyRelease(jam::KeyCodes::KEY_DOWN);
 			if (event.key.code == sf::Keyboard::Left) InputManager::addKeyRelease(jam::KeyCodes::KEY_LEFT);
