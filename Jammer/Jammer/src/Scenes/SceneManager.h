@@ -19,6 +19,13 @@ namespace jam {
 
 		void update();
 
+
+		Scene getSceneByName(std::string name) {
+			for (int i = 0; i < _scenes.size(); i++) {
+				if (name == _scenes[i]->getName()) return *_scenes[i];
+			}
+		}
+
 		void setCurrentScene(Scene scene);
 		void setCurrentScene(const Scene& scene);
 		void setCurrentScene(std::string name);

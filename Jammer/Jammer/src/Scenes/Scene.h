@@ -3,6 +3,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <memory>
+#include <Entities/EntityManager.h>
 
 
 namespace jam {
@@ -12,6 +13,7 @@ namespace jam {
 	private:
 		static uint8_t _COUNT;
 		std::string _sceneName;
+		EntityManager* _entityManager = new EntityManager();
 
 	protected:
 		sf::RenderWindow* m_windowRef;
@@ -23,9 +25,10 @@ namespace jam {
 
 		virtual void load();
 		virtual void update();
-		virtual void render();
+		virtual void render(sf::RenderWindow* window);
 		virtual void unload();
 
+		EntityManager* getEntityManager() { return _entityManager; }
 		inline const std::string getName()const { return _sceneName; }
 
 	};
