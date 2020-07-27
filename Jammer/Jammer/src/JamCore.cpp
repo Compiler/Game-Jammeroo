@@ -12,7 +12,10 @@ namespace jam {
 		std::shared_ptr<jam::Level1> level1 = std::make_shared<jam::Level1>(_window);
 		static bool flip;
 
-		std::shared_ptr<jam::Player> player = std::make_shared<jam::Player>(sf::Vector2f(50, 50), sf::Rect<float>(50, 50, 50, 50));
+		sf::Vector2f playerPos = sf::Vector2f(50, 50);
+		sf::Vector2f playerSize = sf::Vector2f(10.0f, 20.0f);
+
+		std::shared_ptr<jam::Player> player = std::make_shared<jam::Player>(playerPos, sf::Rect<float>(playerPos, playerSize));
 		_entityManager->addPlayer(*player);
 		_manager->addScene(scene1);
 		_manager->addScene(level1);
