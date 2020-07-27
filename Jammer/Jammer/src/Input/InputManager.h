@@ -57,33 +57,28 @@ namespace jam {
 		}
 
 		inline static bool isKeyPressed(jam::KeyCode key) {
-			for (int i = 0; i < _keyPressedEvents.size(); i++) {
-				
+			for (int i = 0; i < _keyPressedEvents.size(); i++)
 				if (_keyPressedEvents[i] == key)
 					return true;
-			}
 			return false;
 		}
 		inline static bool isKeyReleased(jam::KeyCode key) {
 			for (int i = 0; i < _keyReleasedEvents.size(); i++)
 				if (_keyReleasedEvents[i] == key)
 					return true;
-
 			return false;
 		}
 
 		inline static bool isMousePressed(jam::MouseKey key) {
-			for (int i = 0; i < _mousePressEvents.size(); i++) {
+			for (int i = 0; i < _mousePressEvents.size(); i++)
 				if (_mousePressEvents[i] == key)
 					return true;
-			}
 			return false;
 		}
 		inline static bool isMouseReleased(jam::MouseKey key) {
-			for (int i = 0; i < _mouseReleaseEvents.size(); i++) {
+			for (int i = 0; i < _mouseReleaseEvents.size(); i++)
 				if (_mouseReleaseEvents[i] == key)
 					return true;
-			}
 			return false;
 		}
 

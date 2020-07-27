@@ -116,14 +116,6 @@ namespace jam {
 
 
 
-
-
-
-
-
-
-
-
 	void populateEvents(sf::Event event) {
 		if (event.type == sf::Event::KeyPressed) {
 			if (event.key.code == sf::Keyboard::Up) InputManager::addKeyPress(jam::KeyCodes::KEY_UP);
