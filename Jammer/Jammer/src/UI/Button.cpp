@@ -13,15 +13,15 @@ namespace jam {
 		_x = x; _y = y; _width = width; _height = height;
 		_windowArea.left = _x; _windowArea.top = y; _windowArea.width = width; _windowArea.height = _height;
 
-		if (!_font.loadFromFile("res/Raleway-Regular.ttf")) {
-			std::cout << "Failed to load hahahaha\n";
-		}
-		_text.setFont(_font);
-		_text.setCharacterSize(16);
-		_text.setPosition(_x + width / 2.0f, _y + height / 2.0f);
-		_text.setString(_message);
-		_text.setFillColor(sf::Color::Black);
-		_text.setStyle(sf::Text::Regular);
+		//if (!_font.loadFromFile("res/Raleway-Regular.ttf")) {
+		//	std::cout << "Failed to load hahahaha\n";
+		//}
+		//_text.setFont(_font);
+		//_text.setCharacterSize(16);
+		//_text.setPosition(_x + width / 2.0f, _y + height / 2.0f);
+		//_text.setString(_message);
+		//_text.setFillColor(sf::Color::Black);
+		//_text.setStyle(sf::Text::Regular);
 	}
 
 	void Button::setText(std::string message) {
