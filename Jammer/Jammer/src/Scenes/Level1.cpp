@@ -21,11 +21,11 @@ namespace jam {
 
 
 
-		sf::Texture* empTex = new sf::Texture();
-		_testEntity = std::make_shared<jam::Entity>();
-		_testEntity->init(100, 200, 100, 100, empTex);
+		//sf::Texture* empTex = new sf::Texture();
+		//_testEntity = std::make_shared<jam::Entity>();
+		//_testEntity->init(100, 200, 100, 100, empTex);
 
-		m_entityManager->addEntity(_testEntity);
+		//m_entityManager->addEntity(_testEntity);
 
 		if (!sf::Shader::isAvailable()) {
 			std::cout << "LMFAOOO U HAVE NO SHADERS ON UR GPU LMFAOOOOOOO\n";
@@ -50,8 +50,6 @@ namespace jam {
 		static jam::Button button(100, 100, 100, 20);
 
 		Scene::render(window);
-		static sf::CircleShape shape(100.f);
-		shape.setFillColor(sf::Color::Blue);
 		static sf::Text text;
 		static sf::Font font;
 		if (!font.loadFromFile("res/Raleway-Regular.ttf")) {
@@ -63,12 +61,11 @@ namespace jam {
 		text.setString(this->getName());
 		text.setFillColor(sf::Color::Red);
 		text.setStyle(sf::Text::Bold | sf::Text::Underlined);
-		m_windowRef->draw(shape);
 		m_windowRef->draw(text);
-		static float xxxx = _testEntity->getPosition().x;
-		xxxx += 0.1f;
-		_testEntity->render(m_windowRef, &_shader);
-		_testEntity->setPosition(xxxx, _testEntity->getPosition().y);
+		//static float xxxx = _testEntity->getPosition().x;
+		//xxxx += 0.1f;
+		//_testEntity->render(m_windowRef, &_shader);
+		//_testEntity->setPosition(xxxx, _testEntity->getPosition().y);
 
 
 		button.render(window);
