@@ -25,7 +25,7 @@ namespace jam {
 		void init(float x, float y, float width, float height, sf::Texture* texture);
 		Entity(float x, float y, float width, float height, sf::Texture* texture);
 		
-		
+		void setTextureRect(int x, int y, int w, int h) { m_sprite.setTextureRect(sf::IntRect(x,y,w,h)); }//xd
 		void setSize(float width, float height);
 		void setTexture(sf::Texture* t);
 		virtual void load() {
