@@ -7,7 +7,6 @@
 #include <Scenes/Scene.h>
 #include <Scenes/Level1.h>
 #include <Collision/CollisionSystem.h>
-
 namespace jam {
 	
 

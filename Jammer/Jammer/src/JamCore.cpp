@@ -1,6 +1,5 @@
 #include "JamCore.h"
-
-
+#include <Input/InputManager.h>
 namespace jam {
 
 	void populateEvents(sf::Event event);
@@ -64,8 +63,9 @@ namespace jam {
 			}
 			if (!flip)_manager->setCurrentScene("Scene 1");
 			else _manager->setCurrentScene("Level1 Scene");
-
 		}
+		InputManager::clear();
+
 
 	}
 

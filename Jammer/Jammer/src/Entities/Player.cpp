@@ -2,6 +2,7 @@
 #include "Entity.h"
 #include <JamCore.h>
 #include <Collision/CollisionSystem.h>
+#include <Input/InputManager.h>
 namespace jam {
 	Player::Player(const sf::Vector2f& p, const sf::Rect<float>& cb, float w) : _weight(w), Entity(p, cb) { uniqueID = COUNT++; };
 	Player::Player(const sf::Vector2f& p, const sf::Rect<float>& cb, const sf::Texture& t, float w) : _weight(w), Entity(p, cb){ m_sprite = sf::Sprite(t);  uniqueID = COUNT++;
@@ -24,10 +25,10 @@ namespace jam {
 		*/
 
 		// input
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) move(sf::Vector2f(-500.0f,  0.0f)*jam::JamCore::deltaTime);
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) move(sf::Vector2f( 500.0f,  0.0f)*jam::JamCore::deltaTime);
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) move(sf::Vector2f( 0.0f, -500.0f)*jam::JamCore::deltaTime);
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) move(sf::Vector2f( 0.0f,  500.0f)*jam::JamCore::deltaTime);
+		if (jam::InputManager::isKeyPressed(jam::KeyCodes::KEY_A)) move(sf::Vector2f(-500.0f,  0.0f)*jam::JamCore::deltaTime);
+		if (jam::InputManager::isKeyPressed(jam::KeyCodes::KEY_D)) move(sf::Vector2f( 500.0f,  0.0f)*jam::JamCore::deltaTime);
+		if (jam::InputManager::isKeyPressed(jam::KeyCodes::KEY_S)) move(sf::Vector2f( 0.0f, -500.0f)*jam::JamCore::deltaTime);
+		if (jam::InputManager::isKeyPressed(jam::KeyCodes::KEY_W)) move(sf::Vector2f( 0.0f,  500.0f)*jam::JamCore::deltaTime);
 
 		//move(_GRAVITY, entities);
 		//_sprite.setPosition(m_pos);
