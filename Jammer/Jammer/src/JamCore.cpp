@@ -34,7 +34,7 @@ namespace jam {
 
 
 
-
+		//
 		CollisionSystem::init(scene1.getEntityManager()->getEntities());
 	}
 
