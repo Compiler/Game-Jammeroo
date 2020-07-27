@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\molten.jpg" />
+    <Image Include="res\tilemap\tileset\sheet.png" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="res\Raleway-Regular.ttf" />
@@ -53,6 +54,9 @@
     <None Include="res\shaders\FragmentShader.frag" />
     <None Include="res\shaders\RayMarching.frag" />
     <None Include="res\shaders\VertexShader.vert" />
+    <None Include="res\tilemap\pogmap_ground.csv" />
+    <None Include="res\tilemap\pogmap_water.csv" />
+    <None Include="res\tilemap\pogsheet.json" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

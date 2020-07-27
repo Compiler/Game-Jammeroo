@@ -37,7 +37,6 @@ namespace jam {
 	}
 
 	void JamCore::update() {
-		pep_update();
 		static sf::Clock clock = sf::Clock();
 
 		_manager->update();

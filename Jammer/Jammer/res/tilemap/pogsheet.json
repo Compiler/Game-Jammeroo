@@ -1,0 +1,15 @@
+{
+  "columns":17,
+  "image":"res/tilemap/tileset/sheet.png",
+  "imageheight":128,
+  "imagewidth":272,
+  "margin":0,
+  "name":"pogsheet",
+  "spacing":0,
+  "tilecount":136,
+  "tiledversion":"1.4.1",
+  "tileheight":16,
+  "tilewidth":16,
+  "type":"tileset",
+  "version":1.4,
+}
