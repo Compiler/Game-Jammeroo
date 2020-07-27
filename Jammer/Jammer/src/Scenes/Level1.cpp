@@ -38,6 +38,7 @@ namespace jam {
 			std::cout << "failed to load RayMarching.frag\n";
 		}
 
+
 	}
 
 	void Level1::update() {
