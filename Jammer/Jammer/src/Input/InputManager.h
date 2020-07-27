@@ -3,6 +3,7 @@
 #include <SFML/Graphics/Vertex.hpp>
 #include <vector>
 #include <memory>
+#include <algorithm>
 namespace jam {
 
 	class InputManager {
@@ -42,9 +43,21 @@ namespace jam {
 				for (int k = 0; k < _keyReleasedEvents.size(); k++)
 					if (_keyPressedEvents[i] == _keyReleasedEvents[k])
 						removeIndices.push_back(i);
-			while (removeIndices.size() > 0) {
-				_keyPressedEvents.erase(_keyPressedEvents.begin(), _keyPressedEvents.begin() + removeIndices[removeIndices.size()-1] + 1);
-				removeIndices.pop_back();
+
+			std::vector<int> removeIndicesSorted;
+			for (int i = 0; i < removeIndices.size(); i++) {
+				int min = i;
+				for (int k = i + 1; k < removeIndices.size() - 1; k++) {
+					if (removeIndices[min] < removeIndices[k]) min = k;
+				}
+				removeIndicesSorted.push_back(removeIndices[min]);
+			}
+			sort(removeIndicesSorted.begin(), removeIndicesSorted.end());
+			removeIndicesSorted.erase(unique(removeIndicesSorted.begin(), removeIndicesSorted.end()), removeIndicesSorted.end());
+			int count = 0;
+			while (removeIndicesSorted.size() > 0 && _keyPressedEvents.size() > 0) {
+				_keyPressedEvents.erase(_keyPressedEvents.begin(), _keyPressedEvents.begin() + removeIndicesSorted[removeIndicesSorted.size() - 1] + 1);
+				removeIndicesSorted.pop_back();
 			}
 			_keyReleasedEvents.clear();
 			_mouseMovedEvents.clear();
