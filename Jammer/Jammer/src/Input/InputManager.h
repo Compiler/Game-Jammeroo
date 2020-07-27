@@ -36,7 +36,16 @@ namespace jam {
 			_mouseReleaseEvents.push_back(keyReleased);
 		}
 		static void clear() {
-			_keyPressedEvents.clear();
+			//_keyPressedEvents.clear();
+			std::vector<int> removeIndices;
+			for (int i = 0; i < _keyPressedEvents.size(); i++)
+				for (int k = 0; k < _keyReleasedEvents.size(); k++)
+					if (_keyPressedEvents[i] == _keyReleasedEvents[k])
+						removeIndices.push_back(i);
+			while (removeIndices.size() > 0) {
+				_keyPressedEvents.erase(_keyPressedEvents.begin(), _keyPressedEvents.begin() + removeIndices[removeIndices.size()-1] + 1);
+				removeIndices.pop_back();
+			}
 			_keyReleasedEvents.clear();
 			_mouseMovedEvents.clear();
 			_mousePressEvents.clear();
