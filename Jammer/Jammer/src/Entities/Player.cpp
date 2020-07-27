@@ -25,11 +25,18 @@ namespace jam {
 		*/
 
 		// input
+<<<<<<< HEAD
+		if (jam::InputManager::isKeyPressed(jam::KeyCodes::KEY_A)) move(sf::Vector2f(-500.0f,  0.0f)*jam::JamCore::deltaTime);
+		if (jam::InputManager::isKeyPressed(jam::KeyCodes::KEY_D)) move(sf::Vector2f( 500.0f,  0.0f)*jam::JamCore::deltaTime);
+		if (jam::InputManager::isKeyPressed(jam::KeyCodes::KEY_W)) move(sf::Vector2f( 0.0f, -500.0f)*jam::JamCore::deltaTime);
+		if (jam::InputManager::isKeyPressed(jam::KeyCodes::KEY_S)) move(sf::Vector2f( 0.0f,  500.0f)*jam::JamCore::deltaTime);
+=======
 
 		if (jam::InputManager::isKeyPressed(jam::KeyCodes::KEY_A)) move(sf::Vector2f(-50.0f,  0.0f)*jam::JamCore::deltaTime);
 		if (jam::InputManager::isKeyPressed(jam::KeyCodes::KEY_D)) move(sf::Vector2f( 50.0f,  0.0f)*jam::JamCore::deltaTime);
 		if (jam::InputManager::isKeyPressed(jam::KeyCodes::KEY_S)) move(sf::Vector2f( 0.0f,  50.0f)*jam::JamCore::deltaTime);
 		if (jam::InputManager::isKeyPressed(jam::KeyCodes::KEY_W)) move(sf::Vector2f( 0.0f, -50.0f)*jam::JamCore::deltaTime);
+>>>>>>> cec8a4278e2214a0dc7364f0ef744c0d387fb1bd
 
 		//move(_GRAVITY, entities);
 		//_sprite.setPosition(m_pos);
