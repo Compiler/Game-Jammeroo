@@ -13,8 +13,8 @@ namespace jam {
 
 	}
 
-	void Level1::render() {
-		Scene::render();
+	void Level1::render(sf::RenderWindow* window) {
+		Scene::render(window);
 		static sf::CircleShape shape(100.f);
 		shape.setFillColor(sf::Color::Blue);
 		static sf::Text text;

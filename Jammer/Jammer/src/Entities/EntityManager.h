@@ -28,7 +28,7 @@ namespace jam {
 		inline std::shared_ptr<Player> getPlayer() { return _player; }
 		inline std::shared_ptr<Entity> getEntity(uint32_t index) { return _entities[index]; }
 
-
+		
 
 		inline std::vector<std::shared_ptr<Entity>>* getEntities() { return &_entities; }
 	};

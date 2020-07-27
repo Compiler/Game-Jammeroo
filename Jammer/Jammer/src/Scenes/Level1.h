@@ -14,7 +14,7 @@ namespace jam {
 
 		void load()override;
 		void update()override;
-		void render()override;
+		void render(sf::RenderWindow* window)override;
 		void unload()override;
 	};
 

@@ -15,7 +15,6 @@ namespace jam {
 
 	private:
 		std::unique_ptr<SceneManager>  _manager = std::make_unique<SceneManager>();
-		EntityManager* _entityManager = new EntityManager();
 		sf::RenderWindow* _window;
 		sf::View _view;
 
