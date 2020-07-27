@@ -12,7 +12,7 @@ namespace jam {
 		float _weight;
 
 	public:
-		Player() = default;
+		Player()  { uniqueID = COUNT++; };
 		Player(const sf::Vector2f& p, const sf::Rect<float>& cb, float w = 1.0f);
 		Player(const sf::Vector2f& p, const sf::Rect<float>& cb, const sf::Texture& t, float w = 1.0f);
 		Player(const sf::Vector2f& p, const sf::Rect<float>& cb, sf::Sprite s, float w = 1.0f);
