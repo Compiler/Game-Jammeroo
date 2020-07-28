@@ -11,13 +11,14 @@ namespace jam {
 		sf::Vector2f m_position, m_size;
 
 
-		static unsigned int COUNT;
-		unsigned int uniqueID;
+		static uint32_t COUNT;
+		uint32_t uniqueID;
 		sf::Sprite m_sprite;
 		sf::Texture* m_texture;
 
+		std::string name;
 	public:
-		Entity() { uniqueID = COUNT++;  };
+		Entity() { init(0, 0, 1, 1); };
 
 		void init(float x, float y, float width, float height);
 		Entity(float x, float y, float width, float height);
@@ -28,6 +29,8 @@ namespace jam {
 		void init(float x, float y, float width, float height, sf::Texture* texture, int texture_x, int texture_y);
 		Entity(float x, float y, float width, float height, sf::Texture* texture, int texture_x, int texture_y);
 
+		void setName(std::string name) { this->name = name; }
+		void setNotCollidable();
 		void setTextureRect(int x, int y, int w, int h) { m_sprite.setTextureRect(sf::IntRect(x,y,w,h)); }//xd pog
 		sf::IntRect getTextureRect() { return m_sprite.getTextureRect(); };
 		void setSize(float width, float height);
@@ -63,8 +66,10 @@ namespace jam {
 
 		inline bool isColliding(const sf::Rect<float>& other) const {return m_collisionBox.intersects(other);}
 	
-		inline unsigned int getID() const {
-			return uniqueID;
+		inline uint32_t getID() const {
+			if (uniqueID > pow(2, 16))
+				return -1;
+			else return uniqueID;
 		}
 		void setPosition(float x, float y) {
 			this->m_position.x = x;

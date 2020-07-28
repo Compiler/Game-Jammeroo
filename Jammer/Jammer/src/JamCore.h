@@ -33,23 +33,24 @@ namespace jam {
 		JamCore() { std::cout << "JamCore constructed." << std::endl; };
 
 		void pep_init() {
-				
-//			std::shared_ptr<Tile> t = std::make_unique<Tile>(Tile());
-//			t->init(0, 0, 16, 16);
-//			sf::Texture* tex = new sf::Texture();
-//			tex->loadFromFile("res/molten.jpg");
-//			t->setTexture(tex);
-//			_manager->getSceneByName("Level1 Scene").getEntityManager()->addEntity(t);
-			std::vector<std::string> v = {"res/tilemap/pogmap_water.csv",  "res/tilemap/pogmap_ground.csv" };
+
+			//			std::shared_ptr<Tile> t = std::make_unique<Tile>(Tile());
+			//			t->init(0, 0, 16, 16);
+			//			sf::Texture* tex = new sf::Texture();
+			//			tex->loadFromFile("res/molten.jpg");
+			//			t->setTexture(tex);
+			//			_manager->getSceneByName("Level1 Scene").getEntityManager()->addEntity(t);
+			std::vector<std::string> v = { "res/tilemap/pogmap_water.csv",  "res/tilemap/pogmap_ground.csv" };
 			tm = new jam::Tilemap(v);
 			ts = new jam::Tileset("res/tilemap/pogsheet.json");
 			sf::Vector2f cursor = sf::Vector2f(0.0f, 0.0f);
 			unsigned int column = 0;
 			unsigned int i = 0;
+			static int count = 0;
 			for (auto layer : tm->getDataVector()) {
 				cursor.y = 0;
 				for (auto tile_id : layer.getCSVData()) {
-					Tile t;
+					std::shared_ptr<Tile> t;
 					column += 1;
 					cursor.x = ts->tilesize.x * (column - 1);
 					sf::IntRect texture_rect = ts->tiles[tile_id];
@@ -57,20 +58,22 @@ namespace jam {
 						if (column == 20) {
 							cursor.y += ts->tilesize.y;
 							column = 0;
-							std::cout << std::endl;
 						}
 						continue;
 					}
-
-					t = Tile(cursor.x, cursor.y, texture_rect.width, texture_rect.height, ts->texture, texture_rect.left, texture_rect.top);
-					_manager->getSceneByName("Level2 Scene").getEntityManager()->addEntity(std::make_shared<Tile>(t));
+					t = std::make_shared<Entity>(cursor.x, cursor.y, texture_rect.width, texture_rect.height, ts->texture, texture_rect.left, texture_rect.top);
+					count++; std::cout << " created entity#: " << t->getID() << "\n";
+					t->setName("Tile #" + std::to_string(t->getID()));
+					if (tile_id == 116 || tile_id == 83)
+						t->setNotCollidable();
+					_manager->getSceneByName("Level2 Scene").getEntityManager()->addEntity(t);
 					if (column == 20) {
 						cursor.y += ts->tilesize.y;
 						column = 0;
-						std::cout << std::endl;
 					}
+				}
 			}
-			}
+			std::cout << "looped " << count << " times p[ogu\n";
 		}
 
 		uint8_t state;

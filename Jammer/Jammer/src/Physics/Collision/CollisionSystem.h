@@ -24,11 +24,15 @@ namespace jam {
 
 		static std::vector<std::shared_ptr<Entity>>* _entities;
 		static sf::Vector2f adjustProjectedPosition(jam::Entity entity1, sf::Vector2f projectedSpot) {
-			for (std::shared_ptr<jam::Entity> entity2 : *_entities) {
+			for (int i = 0; i < _entities->size(); i++) {
+				Entity& entity2 = *_entities->at(i);
+				if (entity2.getID() > std::pow(2, 16)) {
+					continue;
+				}
 				//std::cout << "size :D \t" << _entities->size() << "\n";
-				if (entity2->getID() == entity1.getID()) { continue; }
+				if (entity2.getID() == entity1.getID()) { continue; }
 				sf::Rect<float> r1 = sf::Rect(projectedSpot, sf::Vector2f(entity1.getCollisionBox().width, entity1.getCollisionBox().height));
-				sf::Rect<float> r2 = entity2->getCollisionBox();
+				sf::Rect<float> r2 = entity2.getCollisionBox();
 				sf::Rect<float> output;
 				if (r1.intersects(r2, output)) {
 					//std::cout << "W: " << output.width << " \t" << "H: " << output.height << "\n";
