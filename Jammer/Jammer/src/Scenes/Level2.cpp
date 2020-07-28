@@ -46,9 +46,11 @@ namespace jam {
 		}
 		text.setFont(font);
 		text.setCharacterSize(16);
-		text.setPosition(50, 50);
+		text.setPosition(100, -100);
 		text.setString(this->getName());
-		text.setFillColor(sf::Color::Blue);
+		text.setFillColor(sf::Color::Red);
+		text.setOutlineColor(sf::Color::White);
+		text.setOutlineThickness(2.0f);
 		text.setStyle(sf::Text::Bold | sf::Text::Underlined);
 		m_windowRef->draw(text);
 		//static float xxxx = _testEntity->getPosition().x;
