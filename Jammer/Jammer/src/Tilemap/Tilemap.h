@@ -3,7 +3,13 @@
 #include <vector>
 #include "Tileset.h"
 namespace jam {
-
+	/// <summary>
+	/// This holds all the data for a layer of tiles
+	/// in the form of a vector of tile IDs in order
+	/// and a width, in tiles, of the layer so that
+	/// moving in the y direction is very simple and
+	/// requires only an if statement or a for loop
+	/// </summary>
 	struct TileLayerData {
 	private:
 		std::string _layer_name;
@@ -19,16 +25,19 @@ namespace jam {
 		// debug purposes
 		std::string print() const;
 	};
-
+	/// <summary>
+	/// basically a wrapper for a vector but with the
+	/// corresponding tileset.
+	/// </summary>
 	class Tilemap {
 		std::vector<TileLayerData> _data_vector;
-		Tileset _tileset;
+		Tileset* _tileset;
 	public:
 
 		Tilemap() = default;
 		Tilemap(const std::vector<std::string>& filepaths);
 		Tilemap(const std::string& filepath);
-
+		~Tilemap();
 		TileLayerData getData(const std::string& layer_name) const;
 		inline std::vector<TileLayerData> getDataVector() const { return this->_data_vector; };
 		void load_layer(const std::string& filepath);

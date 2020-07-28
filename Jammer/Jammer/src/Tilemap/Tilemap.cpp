@@ -49,6 +49,10 @@ namespace jam {
 		return TileLayerData();
 	}
 
+	Tilemap::~Tilemap() {
+		delete this->_tileset;
+	}
+
 	void Tilemap::load_layer(const std::string& filepath) {
 		std::ifstream filestream;
 		std::string file_name = (filepath.substr((filepath).find_last_of("/\\") + 1)).substr(0, filepath.find_last_of("."));

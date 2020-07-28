@@ -40,9 +40,11 @@ namespace jam {
 		for (int i = 0; i < _scenes.size(); i++) {
 			if (nextName == _scenes[i]->getName()) _nextScene = i;
 		}
+
 	}
 	void SceneManager::setCurrentScene(const Scene& scene) {}
 	void SceneManager::setCurrentScene(std::string name) {
+		std::cout << "Current Scene set to: " << name << std::endl;
 		for (int i = 0; i < _scenes.size(); i++) {
 			if (name == _scenes[i]->getName()) _nextScene = i;
 		}

@@ -7,10 +7,11 @@ namespace jam {
 	float JamCore::deltaTime;
 
 	void JamCore::init() {
-		pep_init();
+		
 		_window = new sf::RenderWindow(sf::VideoMode(400, 400), "POGU");
 		jam::Scene scene1(_window, std::string("Scene 1"));
 		std::shared_ptr<jam::Level1> level1 = std::make_shared<jam::Level1>(_window);
+		std::shared_ptr<jam::Level2> level2 = std::make_shared<jam::Level2>(_window);
 		static bool flip;
 
 		sf::Vector2f playerPos = sf::Vector2f(50, 50);
@@ -19,9 +20,12 @@ namespace jam {
 		std::shared_ptr<jam::Player> player = std::make_shared<jam::Player>();
 		player->init(10, -10, 10, 20);
 		level1->getEntityManager()->addPlayer(*player);
+		level2->getEntityManager()->addPlayer(*player);
 		scene1.getEntityManager()->addPlayer(*player);
+		
 		_manager->addScene(scene1);
 		_manager->addScene(level1);
+		_manager->addScene(level2);
 		_manager->setCurrentScene(level1->getName());
 
 		jam::Entity ent = jam::Entity();
@@ -33,7 +37,10 @@ namespace jam {
 		level1->load();
 
 
-		CollisionSystem::init(scene1.getEntityManager()->getEntities());
+		CollisionSystem::init(_manager->getSceneByName("Level2 Scene").getEntityManager()->getEntities());
+
+		_manager->setCurrentScene("Level2 Scene");
+		pep_init();
 	}
 
 	void JamCore::update() {
@@ -49,14 +56,15 @@ namespace jam {
 		InputManager::clear();
 
 		sf::Event event;
-		static bool flip;
+		static int flip = 2;
 		while (_window->pollEvent(event)) {
 			populateEvents(event);
 			if (event.type == sf::Event::Closed)
 				_window->close();
 			if (event.type == sf::Event::KeyReleased) {
 				if (event.key.code == sf::Keyboard::E) {
-					flip = !flip;
+					if (flip == 2) flip = 0;
+					else flip++;
 				}
 			}
 			if (event.type == sf::Event::Resized) {
@@ -64,12 +72,19 @@ namespace jam {
 				sf::FloatRect visibleArea(0.f, 0.f, event.size.width, event.size.height);
 				_window->setView(sf::View(visibleArea));
 			}
-			if (flip) {
+			if (flip == 0 && _manager->getCurrentScene().getName() != "Scene 1") {
 				CollisionSystem::init(_manager->getSceneByName("Scene 1").getEntityManager()->getEntities());
 				_manager->setCurrentScene("Scene 1");
-			} else {
+
+			} else if (flip == 1 && _manager->getCurrentScene().getName() != "Level1 Scene") {
 				CollisionSystem::init(_manager->getSceneByName("Level1 Scene").getEntityManager()->getEntities());
 				_manager->setCurrentScene("Level1 Scene");
+
+			}
+			else if (flip == 2 && _manager->getCurrentScene().getName() != "Level2 Scene") {
+				CollisionSystem::init(_manager->getSceneByName("Level2 Scene").getEntityManager()->getEntities());
+				_manager->setCurrentScene("Level2 Scene");
+
 			}
 		}
 
@@ -82,7 +97,6 @@ namespace jam {
 		_window->clear();
 		_manager->getCurrentScene().render(_window);
 		_manager->getCurrentScene().getEntityManager()->render(_window);
-		pep_render();
 		_window->display();
 
 	}

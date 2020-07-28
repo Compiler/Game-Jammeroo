@@ -6,9 +6,11 @@
 #include <memory>
 #include <Scenes/Scene.h>
 #include <Scenes/Level1.h>
+#include <Scenes/Level2.h>
 #include <Physics/Collision/CollisionSystem.h>
 #include <Tilemap/Tilemap.h>
 #include <Tilemap/Tileset.h>
+#include <vector>
 namespace jam {
 	
 
@@ -19,47 +21,47 @@ namespace jam {
 		std::unique_ptr<SceneManager>  _manager = std::make_unique<SceneManager>();
 		sf::RenderWindow* _window;
 		sf::View _view;
-		jam::Tilemap tm;
-		jam::Tileset ts;
-
+		jam::Tilemap* tm;
+		jam::Tileset* ts;
 		void populateEvents(sf::Event event);
 
 	public:
 
 		static float deltaTime;
 
-		JamCore() { std::cout << "pogu" << std::endl; };
+		// better message, idiot
+		JamCore() { std::cout << "JamCore constructed." << std::endl; };
 
 		void pep_init() {
+				
+//			std::shared_ptr<Tile> t = std::make_unique<Tile>(Tile());
+//			t->init(0, 0, 16, 16);
+//			sf::Texture* tex = new sf::Texture();
+//			tex->loadFromFile("res/molten.jpg");
+//			t->setTexture(tex);
+//			_manager->getSceneByName("Level1 Scene").getEntityManager()->addEntity(t);
 			std::vector<std::string> v = { "res/tilemap/pogmap_ground.csv", "res/tilemap/pogmap_water.csv" };
-			tm = jam::Tilemap(v);
-			//tileset destructor being called here?
-			std::cout << "before Tileset constructor" << std::endl;
-			ts = jam::Tileset("res/tilemap/pogsheet.json");  //calls Tileset constructor??
-			std::cout <<  "end of pep_init" << std::endl;
-
-		}
-		void pep_render() {
-			static sf::CircleShape shape(100.f);
-			shape.setFillColor(sf::Color::Yellow);
-			shape.setPosition(-100, -100);
-			static sf::Vector2f cursor(0.0f, 0.0f);
-			static sf::Vector2i size(16, 16);
+			tm = new jam::Tilemap(v);
+			ts = new jam::Tileset("res/tilemap/pogsheet.json");
+			sf::Vector2f cursor = sf::Vector2f(0.0f, 0.0f);
 			unsigned int column = 0;
-			for (auto layer : tm.getDataVector()){
-				for (auto tile_id : layer.getCSVData()) {
-					ts.tiles[tile_id].setPosition(cursor.x, cursor.y);
-					ts.tiles[tile_id].render(_window);
-					cursor.x += size.x;
-					if (column % 20 == 0) {
-						cursor.y += size.y;
-						cursor.x = 0;
+			unsigned int i = 0;
+//			for (auto layer : tm->getDataVector()) {
+//				cursor.y = 0;
+				for (auto tile_id : tm->getDataVector()[0].getCSVData()) {
+					column += 1;
+					cursor.x = ts->tilesize.x * (column - 1);
+					sf::IntRect texture_rect = ts->tiles[tile_id];
+					Tile t = Tile(cursor.x, cursor.y, ts->tilesize.x, ts->tilesize.y, ts->texture, texture_rect.left, texture_rect.top);
+					_manager->getSceneByName("Level2 Scene").getEntityManager()->addEntity(std::make_shared<Tile>(t));
+					if (column == 20) {
+						cursor.y += ts->tilesize.y;
+						column = 0;
 					}
-				}
+//				}
 			}
-			_window->draw(shape);
-
 		}
+
 		uint8_t state;
 		void init();
 		void update();

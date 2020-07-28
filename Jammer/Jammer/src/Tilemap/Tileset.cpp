@@ -5,7 +5,7 @@
 #include <string>
 namespace jam {
 
-	std::unordered_map<std::string, std::string>  load_jsonvars(const std::string& filepath) {
+	std::unordered_map<std::string, std::string> Tileset::load_jsonvars(const std::string& filepath) {
 
 		//the tileset info files are exported as json
 
@@ -26,7 +26,7 @@ namespace jam {
 				while (getline(ss, split, ':')) {
 					split_string.push_back(split);
 				}
-				jsonvars[split_string[0]] = split_string[1];
+				jsonvars[split_string[0].substr(1, split_string[0].size()-2)] = split_string[1];
 				split_string.clear();
 			}
 		}
@@ -39,37 +39,36 @@ namespace jam {
 	}
 
 	Tileset::~Tileset() {
-
-		delete texture;
+		delete this->texture;
 	}
 
 	void Tileset::load_tileset(const std::string& jsonpath) {
 
 		std::unordered_map<std::string, std::string> jsonvars = load_jsonvars(jsonpath);
-		this->tiles[-1] = Tile();
+		this->tilesize = sf::Vector2i(std::stoi(jsonvars["tilewidth"]), std::stoi(jsonvars["tileheight"]));
+
 
 		sf::Vector2i cursor(0, 0);
-		std::cout << jsonvars["\"tilewidth\""] << std::endl;
-		sf::Vector2i tileSize(std::stoi(jsonvars["\"tilewidth\""]), std::stoi(jsonvars["\"tileheight\""]));
-		for (unsigned int i = 0; i < std::stoi(jsonvars["\"tilecount\""]); i++) {
-			//make tile
-			Tile tile(0, 0, tileSize.x, tileSize.y);
-			tile.setTextureRect(cursor.x, cursor.y, tileSize.x, tileSize.y);
-			//add to tileset
-			this->tiles[i] = tile;
-			if (i % std::stoi(jsonvars["\"columns\""]) == 0) {
+		std::cout << jsonvars["tilewidth"] << std::endl;
+		for (unsigned int i = 0; i < std::stoi(jsonvars["tilecount"]); i++) {
+			//add texture rect to the tiles map
+			this->tiles[i] = sf::IntRect(cursor, tilesize);
+			
+			if (i % std::stoi(jsonvars["columns"]) == 0 && i != 0) {
 				cursor.x = 0;
-				cursor.y += tileSize.y;
+				cursor.y += tilesize.y;
 			}
 			else {
-				cursor.x += tileSize.x;
+				cursor.x += tilesize.x;
 			}
 		}
 
-		std::string filepath = jsonvars["\"image\""];
+
+		this->tiles[-1] = this->tiles[34];
+		std::string filepath = jsonvars["image"];
 		filepath = filepath.substr(1, filepath.size() - 2);
 		if(!this->texture->loadFromFile(filepath)) std::cout << "the file did not load" << std::endl;
-	
+		this->tilesize = sf::Vector2i(std::stoi(jsonvars["tilewidth"]), std::stoi(jsonvars["tileheight"]));
 	}
 
 }

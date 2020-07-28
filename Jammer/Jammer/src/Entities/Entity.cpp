@@ -47,5 +47,19 @@ namespace jam {
 		m_collisionBox.height = m_size.y;
 	}
 
+	void Entity::init(float x, float y, float width, float height, sf::Texture* texture, int texture_x, int texture_y) {
+		m_position = sf::Vector2f(x, y);
+		m_size = sf::Vector2f(width, height);
+		m_texture = texture;
+		m_sprite.setTexture(*m_texture);
+		m_sprite.setTextureRect(sf::IntRect(static_cast<int>(width), static_cast<int>(height), texture_x, texture_y));
+		m_collisionBox.width = m_size.x;
+		m_collisionBox.width = m_size.y;
+		__dbg_col = sf::Color(255, 0, 255); // purple/magenta means this constructor is the one in question
+	}
+
+	Entity::Entity(float x, float y, float width, float height, sf::Texture* texture, int texture_x, int texture_y) {
+		init(x, y, width, height, texture, texture_x, texture_y);
+	}
 
 }

@@ -25,7 +25,11 @@ namespace jam {
 		void init(float x, float y, float width, float height, sf::Texture* texture);
 		Entity(float x, float y, float width, float height, sf::Texture* texture);
 		
+		void init(float x, float y, float width, float height, sf::Texture* texture, int texture_x, int texture_y);
+		Entity(float x, float y, float width, float height, sf::Texture* texture, int texture_x, int texture_y);
+
 		void setTextureRect(int x, int y, int w, int h) { m_sprite.setTextureRect(sf::IntRect(x,y,w,h)); }//xd pog
+		sf::IntRect getTextureRect() { return m_sprite.getTextureRect(); };
 		void setSize(float width, float height);
 		void setTexture(sf::Texture* t);
 		virtual void load() {
@@ -40,9 +44,11 @@ namespace jam {
 		}; 
 		virtual void render(sf::RenderWindow* rw, sf::RenderStates state = sf::RenderStates::Default) {
 			static sf::RectangleShape shape(sf::Vector2f(m_size.x, m_size.y));
-			shape.setFillColor(__dbg_col);
+			shape.setFillColor(sf::Color::Transparent);
 			shape.setPosition(this->getPosition());
 			rw->draw(m_sprite, state);
+			shape.setOutlineColor(sf::Color::Red);
+			shape.setOutlineThickness(2.0f);
 //			rw->draw(shape, state);
 		}; 
 
@@ -51,7 +57,7 @@ namespace jam {
 			shape.setFillColor(__dbg_col);
 			shape.setPosition(this->getPosition());
 			rw->draw(m_sprite, &shader);
-			rw->draw(shape, &shader);
+//			rw->draw(shape, &shader);
 		};
 		virtual void unload() {};
 
