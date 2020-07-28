@@ -39,7 +39,8 @@ namespace jam {
 	}
 
 	Tileset::~Tileset() {
-		delete this->texture;
+
+		delete texture;
 	}
 
 	void Tileset::load_tileset(const std::string& jsonpath) {

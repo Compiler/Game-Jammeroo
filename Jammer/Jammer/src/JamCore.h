@@ -33,7 +33,9 @@ namespace jam {
 		void pep_init() {
 			std::vector<std::string> v = { "res/tilemap/pogmap_ground.csv", "res/tilemap/pogmap_water.csv" };
 			tm = jam::Tilemap(v);
-			ts = jam::Tileset("res/tilemap/pogsheet.json");
+			//tileset destructor being called here?
+			std::cout << "before Tileset constructor" << std::endl;
+			ts = jam::Tileset("res/tilemap/pogsheet.json");  //calls Tileset constructor??
 			std::cout <<  "end of pep_init" << std::endl;
 
 		}
