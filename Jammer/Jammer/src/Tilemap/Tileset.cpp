@@ -54,7 +54,7 @@ namespace jam {
 			//add texture rect to the tiles map
 			this->tiles[i] = sf::IntRect(cursor, tilesize);
 			
-			if (i % std::stoi(jsonvars["columns"]) == 0 && i != 0) {
+			if ((i+1) % std::stoi(jsonvars["columns"]) == 0 && i != 0) {
 				cursor.x = 0;
 				cursor.y += tilesize.y;
 			}

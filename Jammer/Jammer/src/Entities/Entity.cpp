@@ -52,9 +52,9 @@ namespace jam {
 		m_size = sf::Vector2f(width, height);
 		m_texture = texture;
 		m_sprite.setTexture(*m_texture);
-		m_sprite.setTextureRect(sf::IntRect(static_cast<int>(width), static_cast<int>(height), texture_x, texture_y));
+		m_sprite.setTextureRect(sf::IntRect(texture_x, texture_y, static_cast<int>(width), static_cast<int>(height)));
 		m_collisionBox.width = m_size.x;
-		m_collisionBox.width = m_size.y;
+		m_collisionBox.height = m_size.y;
 		__dbg_col = sf::Color(255, 0, 255); // purple/magenta means this constructor is the one in question
 	}
 
