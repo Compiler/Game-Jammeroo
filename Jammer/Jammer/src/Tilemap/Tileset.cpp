@@ -39,6 +39,7 @@ namespace jam {
 	}
 
 	Tileset::~Tileset() {
+		if(texture == nullptr)
 		delete this->texture;
 	}
 

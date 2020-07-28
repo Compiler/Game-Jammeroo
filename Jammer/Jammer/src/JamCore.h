@@ -19,8 +19,8 @@ namespace jam {
 		std::unique_ptr<SceneManager>  _manager = std::make_unique<SceneManager>();
 		sf::RenderWindow* _window;
 		sf::View _view;
-		jam::Tilemap tm;
-		jam::Tileset ts;
+		jam::Tilemap* tm;
+		jam::Tileset* ts;
 
 		void populateEvents(sf::Event event);
 
@@ -32,8 +32,8 @@ namespace jam {
 
 		void pep_init() {
 			std::vector<std::string> v = { "res/tilemap/pogmap_ground.csv", "res/tilemap/pogmap_water.csv" };
-			tm = jam::Tilemap(v);
-			ts = jam::Tileset("res/tilemap/pogsheet.json");
+			tm = new jam::Tilemap(v);
+			ts = new jam::Tileset("res/tilemap/pogsheet.json");
 			std::cout <<  "end of pep_init" << std::endl;
 
 		}
@@ -44,10 +44,10 @@ namespace jam {
 			static sf::Vector2f cursor(0.0f, 0.0f);
 			static sf::Vector2i size(16, 16);
 			unsigned int column = 0;
-			for (auto layer : tm.getDataVector()){
+			for (auto layer : tm->getDataVector()){
 				for (auto tile_id : layer.getCSVData()) {
-					ts.tiles[tile_id].setPosition(cursor.x, cursor.y);
-					ts.tiles[tile_id].render(_window);
+					ts->tiles[tile_id].setPosition(cursor.x, cursor.y);
+					ts->tiles[tile_id].render(_window);
 					cursor.x += size.x;
 					if (column % 20 == 0) {
 						cursor.y += size.y;

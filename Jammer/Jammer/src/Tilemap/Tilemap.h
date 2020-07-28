@@ -22,13 +22,13 @@ namespace jam {
 
 	class Tilemap {
 		std::vector<TileLayerData> _data_vector;
-		Tileset _tileset;
+		Tileset* _tileset;
 	public:
 
 		Tilemap() = default;
 		Tilemap(const std::vector<std::string>& filepaths);
 		Tilemap(const std::string& filepath);
-
+		~Tilemap() {}
 		TileLayerData getData(const std::string& layer_name) const;
 		inline std::vector<TileLayerData> getDataVector() const { return this->_data_vector; };
 		void load_layer(const std::string& filepath);
