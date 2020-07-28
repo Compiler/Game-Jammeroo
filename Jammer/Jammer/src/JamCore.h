@@ -53,8 +53,16 @@ namespace jam {
 					column += 1;
 					cursor.x = ts->tilesize.x * (column - 1);
 					sf::IntRect texture_rect = ts->tiles[tile_id];
-					if(tile_id != -1) 
-						t = Tile(cursor.x, cursor.y, texture_rect.width, texture_rect.height, ts->texture, texture_rect.left, texture_rect.top);
+					if (tile_id == -1) {
+						if (column == 20) {
+							cursor.y += ts->tilesize.y;
+							column = 0;
+							std::cout << std::endl;
+						}
+						continue;
+					}
+
+					t = Tile(cursor.x, cursor.y, texture_rect.width, texture_rect.height, ts->texture, texture_rect.left, texture_rect.top);
 					_manager->getSceneByName("Level2 Scene").getEntityManager()->addEntity(std::make_shared<Tile>(t));
 					if (column == 20) {
 						cursor.y += ts->tilesize.y;
